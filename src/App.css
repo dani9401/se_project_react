@@ -1,23 +1,20 @@
-.header {
-    background-color: aquamarine;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 60px;
-    padding: 0 20px
+.weather {
+    position: relative;
 }
 
-.header__logo {
-    display: flex;
-    align-items: center;
-
-    gap: 20px;
+.weather__info {
+    position: absolute;
+    top: 12px; 
+    left: 16px;
+    color: white;
+    font-size: 36px;
 }
 
-.header__avatar-logo {
-    display: flex;
-    align-items: center;
-
-    gap: 20px;
+.weather__image {
+    width: 100%;
 }
 
+.main {
+    padding: 0 20px;
+
+}
