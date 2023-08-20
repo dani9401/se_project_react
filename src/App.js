@@ -4,13 +4,19 @@ function App() {
     return (
         <div>
             <header className='header'>
-                <div>Logo</div>
-                <div>Date</div>
+                <div className="header__logo">
                 <div>
-                    <button type='text'></button>
+                    <img src='./images/Logo_wtwr.svg' alt='logo'></img>
+                    </div>
+                <div>Date</div>
+                </div>
+                <div  className="header__avatar-logo">
+                <div>
+                    <button type='text'>Add New Clothes</button>
                 </div>
                 <div>Name</div>
-                <div>Avatar</div>
+                <div><img src='./images/avatar.svg' alt='avatar'></img></div>
+                </div>
             </header>
         </div>
     );
