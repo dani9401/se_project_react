@@ -13,7 +13,7 @@ const weatherOptions = [
     {url: require("../images/Night/Night - Storm.svg").default, day: false, type: "storm"}
 ]
 
-const WeatherCard = ({day, type}) => {
+const WeatherCard = ({day, type, weatherTemp = ''}) => {
     //console.log("WeatherCard");
 
 const imageSource = weatherOptions.filter((i) => {
@@ -28,7 +28,7 @@ const imageSourceURL = imageSource[0].url || "" //empty string at end for defens
 
     return (
         <section id='weather' className="weather">
-                    <div className="weather__info">65°F</div>
+                    <div className="weather__info">{weatherTemp}</div>
                     <img className="weather__image" src={imageSourceURL} alt='weather image'></img>
                 </section>
     )
