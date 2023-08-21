@@ -17,7 +17,7 @@ const Header = () => {
                     <button type='text'>Add New Clothes</button>
                 </div>
                 <div>Name</div>
-                <div><img src='./images/avatar.svg' alt='avatar'></img></div>
+                <div><img src={require('../images/avatar.svg').default} alt='avatar'></img></div>
                 </div>
             </header>
     )
