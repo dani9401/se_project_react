@@ -2,7 +2,7 @@ import './Header.css'
 
 
 const Header = () => {
-    console.log("Header");
+    //console.log("Header");
 
     return (
         <header className='header'>
