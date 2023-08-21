@@ -1,16 +1,16 @@
 const weatherOptions = [
-    {url: "./images/Day/Day - Sunny.svg", day: true, type: "sunny"},
-    {url: "./images/Day/Day - Cloudy.svg", day: true, type: "cloudy"},
-    {url: "./images/Day/Day - Fog.svg", day: true, type: "fog"},
-    {url: "./images/Day/Day - Rain.svg", day: true, type: "rain"},
-    {url: "./images/Day/Day - Snow.svg", day: true, type: "snow"},
-    {url: "./images/Day/Day - Storm.svg", day: true, type: "storm"},
-    {url: "./images/Night/Night - Clear.svg", day: false, type: "clear"},
-    {url: "./images/Night/Night - Cloudy.svg", day: false, type: "cloudy"},
-    {url: "./images/Night/Night - Fog.svg", day: false, type: "fog"},
-    {url: "./images/Night/Night - Rain.svg", day: false, type: "rain"},
-    {url: "./images/Night/Night - Snow.svg", day: false, type: "snow"},
-    {url: "./images/Night/Night - Storm.svg", day: false, type: "storm"}
+    {url: require("../images/Day/Day - Sunny.svg").default, day: true, type: "sunny"},
+    {url: require("../images/Day/Day - Cloudy.svg").default, day: true, type: "cloudy"},
+    {url: require("../images/Day/Day - Fog.svg").default, day: true, type: "fog"},
+    {url: require("../images/Day/Day - Rain.svg").default, day: true, type: "rain"},
+    {url: require("../images/Day/Day - Snow.svg").default, day: true, type: "snow"},
+    {url: require("../images/Day/Day - Storm.svg").default, day: true, type: "storm"},
+    {url: require("../images/Night/Night - Clear.svg").default, day: false, type: "clear"},
+    {url: require("../images/Night/Night - Cloudy.svg").default, day: false, type: "cloudy"},
+    {url: require("../images/Night/Night - Fog.svg").default, day: false, type: "fog"},
+    {url: require("../images/Night/Night - Rain.svg").default, day: false, type: "rain"},
+    {url: require("../images/Night/Night - Snow.svg").default, day: false, type: "snow"},
+    {url: require("../images/Night/Night - Storm.svg").default, day: false, type: "storm"}
 ]
 
 const WeatherCard = ({day, type}) => {
