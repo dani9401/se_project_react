@@ -1,0 +1,27 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+    background-color: white;
+    max-width: 496px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 34px 36px;
+}
+
+.modal__close-button {}
+
+.modal__title {}
+
+.modal__form {}
+
+.modal__submit-button {}

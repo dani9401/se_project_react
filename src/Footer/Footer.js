@@ -1,7 +1,7 @@
 import './Footer.css'
 
 function Footer() {
-    console.log("Footer")
+    //console.log("Footer")
     return (<footer className="footer">
         <div>
             Developed by Practicum Student Danielle Foss
