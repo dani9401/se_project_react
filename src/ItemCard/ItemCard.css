@@ -2,6 +2,15 @@
     margin-top: 20px;
 }
 
+.card__section-title {
+    color: #000;
+/*font-family: Cabinet Grotesk*/
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
 .card__image {
     max-width: 328px;
     max-height: 328px;
