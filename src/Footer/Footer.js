@@ -1,3 +1,5 @@
+import './Footer.css'
+
 function Footer() {
     console.log("Footer")
     return (<footer className="footer">
