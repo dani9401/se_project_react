@@ -1,3 +1,5 @@
+import './WeatherCard.css'
+
 const weatherOptions = [
     {url: require("../images/Day/Day - Sunny.svg").default, day: true, type: "sunny"},
     {url: require("../images/Day/Day - Cloudy.svg").default, day: true, type: "cloudy"},
