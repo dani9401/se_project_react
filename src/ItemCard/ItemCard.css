@@ -1,14 +1,19 @@
 .card__section {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .card__section-title {
+    margin: 0px;
     color: #000;
-/*font-family: Cabinet Grotesk*/
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+    font-family: "Cabinet Grotesk", Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.card__element {
+    position: relative;
 }
 
 .card__image {
@@ -18,13 +23,24 @@ line-height: normal;
 }
 
 .card__name {
+    position: absolute;
+    top: 18px;
+    right: 140px;
     text-align: center;
+    padding: 0 12px;
+    color: rgba(0, 0, 0, 0.60);
+    background-color: #fff;
+    font-family: "Cabinet Grotesk", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .card__items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 17px;
+    margin-top: 34px;
 }

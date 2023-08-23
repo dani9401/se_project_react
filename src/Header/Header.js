@@ -7,7 +7,7 @@ const Header = ({onCreateModal}) => {
                 <div className="header__logo">
                     <img src={require('../images/Logo_wtwr.svg').default} alt='logo'></img>
                     </div>
-                <div className="header__date-location">Date, Location</div>
+                <div className="header__date-location">August 23, Denver, CO</div>
                 </div>
                 <div className="header__menu-right">
                 <div>
