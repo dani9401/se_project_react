@@ -4,7 +4,7 @@ function Footer() {
     //console.log("Footer")
     return (<footer className="footer">
         <div>
-            Developed by Practicum Student Danielle Foss
+            Developed by Danielle Foss
         </div>
         <div>
             2023
