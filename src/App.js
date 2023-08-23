@@ -2,6 +2,7 @@ import Header from './Header/Header.js'
 import Main from './Main/Main.js';
 import Footer from './Footer/Footer.js';
 import ModalWithForm from './ModalWithForm/ModalWithForm.js';
+import ItemModal from './ItemModal/ItemModal.js';
 import { useState } from 'react';
 
 function App() {
@@ -14,6 +15,11 @@ function App() {
     //if it's a boolean, it'll expect only booleans, 
     //if it's a number, it'll expect numbers, etc
 
+    const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
+    // the defaultClothingItems (ie: the card) is also an object. 
+
+    console.log(selectedCard)
+
     const handleCreateModal = () => {
         setActiveModal("create")
     };
@@ -22,10 +28,15 @@ function App() {
         setActiveModal("")
     };
 
+    const handleSelectedCard = (card) => {
+        setActiveModal("preview");
+        setSelectedCard(card);
+    };
+
     return (
         <div>
             <Header onCreateModal={handleCreateModal}/>
-            <Main weatherTemp={weatherTemp}/>
+            <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard}/>
             <Footer/>
             {activeModal === "create" && (
             <ModalWithForm title="New Garment" onClose={handleCloseModal}>
@@ -54,6 +65,9 @@ function App() {
                 </div>
             </ModalWithForm>
     )}
+        {activeModal === "preview" && 
+        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal}/>
+    }
         </div>
     );
 }
