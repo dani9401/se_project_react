@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { getWeatherForecast, parseWeatherData } from './utils/weatherAPI.js';
 
 function App() {
-    const weatherTemp = "65°F";
+    //const weatherTemp = "65°F";
     const [activeModal, setActiveModal] = useState(''); //setting the default values for modals 
     //when page renders. Make sure to always use a string. 
     //this allows react to know what the starting default value is
@@ -18,7 +18,7 @@ function App() {
 
     const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
     // the defaultClothingItems (ie: the card) is also an object.
-    const [temp, setTemp] = useState(0);
+    const [weatherTemp, setWeatherTemp] = useState(0);
 
     const handleCreateModal = () => {
         setActiveModal("create");
@@ -36,15 +36,14 @@ function App() {
     useEffect(() => {
         getWeatherForecast().then((data) => {
             const temperature = parseWeatherData(data);
-            setTemp(temperature);
+            setWeatherTemp(temperature);
         })
     }, []);
-    console.log(temp)
 
     return (
         <div>
-            <Header onCreateModal={handleCreateModal} temp={temp}/>
-            <Main temp={temp} onSelectCard={handleSelectedCard}/>
+            <Header onCreateModal={handleCreateModal}/>
+            <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard}/>
             <Footer/>
             {activeModal === "create" && (
             <ModalWithForm title="New Garment" onClose={handleCloseModal}>
