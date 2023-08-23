@@ -3,7 +3,8 @@ import Main from './Main/Main.js';
 import Footer from './Footer/Footer.js';
 import ModalWithForm from './ModalWithForm/ModalWithForm.js';
 import ItemModal from './ItemModal/ItemModal.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getWeatherForecast, parseWeatherData } from './utils/weatherAPI.js';
 
 function App() {
     const weatherTemp = "65°F";
@@ -16,16 +17,15 @@ function App() {
     //if it's a number, it'll expect numbers, etc
 
     const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
-    // the defaultClothingItems (ie: the card) is also an object. 
-
-    console.log(selectedCard)
+    // the defaultClothingItems (ie: the card) is also an object.
+    const [temp, setTemp] = useState(0);
 
     const handleCreateModal = () => {
-        setActiveModal("create")
+        setActiveModal("create");
     };
 
     const handleCloseModal = () => {
-        setActiveModal("")
+        setActiveModal("");
     };
 
     const handleSelectedCard = (card) => {
@@ -33,10 +33,18 @@ function App() {
         setSelectedCard(card);
     };
 
+    useEffect(() => {
+        getWeatherForecast().then((data) => {
+            const temperature = parseWeatherData(data);
+            setTemp(temperature);
+        })
+    }, []);
+    console.log(temp)
+
     return (
         <div>
-            <Header onCreateModal={handleCreateModal}/>
-            <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard}/>
+            <Header onCreateModal={handleCreateModal} temp={temp}/>
+            <Main temp={temp} onSelectCard={handleSelectedCard}/>
             <Footer/>
             {activeModal === "create" && (
             <ModalWithForm title="New Garment" onClose={handleCloseModal}>

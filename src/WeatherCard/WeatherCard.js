@@ -16,21 +16,16 @@ const weatherOptions = [
 ]
 
 const WeatherCard = ({day, type, weatherTemp = ''}) => {
-    //console.log("WeatherCard");
 
 const imageSource = weatherOptions.filter((i) => {
-    //console.log(i);
     return i.day === day && i.type === type
 })
-
-//console.log(imageSource)
-//console.log(imageSource[0].url)
 
 const imageSourceURL = imageSource[0].url || "" //empty string at end for defensive coding
 
     return (
         <section id='weather' className="weather">
-                    <div className="weather__info">{weatherTemp}</div>
+                    <div className="weather__info">{weatherTemp}°F</div>
                     <img className="weather__image" src={imageSourceURL} alt='weather image'></img>
                 </section>
     )
