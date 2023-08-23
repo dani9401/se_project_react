@@ -26,8 +26,10 @@
     position: absolute;
     top: 18px;
     right: 140px;
+    margin: 0;
     text-align: center;
     padding: 0 12px;
+    border-radius: 4px;
     color: rgba(0, 0, 0, 0.60);
     background-color: #fff;
     font-family: "Cabinet Grotesk", Arial, sans-serif;
