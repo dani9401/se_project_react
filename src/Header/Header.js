@@ -3,18 +3,19 @@ import './Header.css'
 const Header = ({onCreateModal}) => {
     return (
         <header className='header'>
+                <div className="header__menu-left">
                 <div className="header__logo">
-                <div>
                     <img src={require('../images/Logo_wtwr.svg').default} alt='logo'></img>
                     </div>
-                <div>Date</div>
+                <div className="header__date-location">Date, Location</div>
                 </div>
-                <div  className="header__avatar-logo">
+                <div className="header__menu-right">
                 <div>
-                    <button onClick={onCreateModal} type='text'>Add New Clothes</button>
+                    <button className="header__add-button" onClick={onCreateModal} type='text'>+ Add Clothes</button>
                 </div>
-                <div>Name</div>
-                <div><img src={require('../images/avatar.svg').default} alt='avatar'></img></div>
+                <div className="header__name">Danielle Foss</div>
+                <div>
+                    <img src={require('../images/avatar.svg').default} alt='avatar' className="header__avatar"></img></div>
                 </div>
             </header>
     )
