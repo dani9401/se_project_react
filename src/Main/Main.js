@@ -17,10 +17,8 @@ function Main({weatherTemp, onSelectCard}) {
     }, [weatherTemp]) //dependencies go in brackets
 
     const filteredCards = defaultClothingItems.filter((item) => {
-        console.log(item);
         return item.weather.toLowerCase() === weatherType; //toLowerCase removes possibility that card might have weather style in non-identical string, ie; Hot vs hot
     })
-    console.log(filteredCards)
 
     return <main className="main">
         <WeatherCard day={false} type='storm' weatherTemp={weatherTemp} />
