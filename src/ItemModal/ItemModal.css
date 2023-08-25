@@ -1,0 +1,32 @@
+.modal__container-image {
+    width: 498px;
+    height: 610px;
+}
+
+.modal__image-preview {
+    width: 498px;
+    height: 498px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.modal__item-name {
+    font-family: "Cabinet Grotesk", Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 20px;
+    margin-left: 32px;
+}
+
+.modal__weather-type {
+    font-family: "Cabinet Grotesk", Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1; 
+    margin-left: 32px;
+    margin-top: 12px;
+    margin-bottom: 32px;
+}
