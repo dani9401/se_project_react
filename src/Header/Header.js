@@ -1,13 +1,13 @@
 import './Header.css'
 
-const Header = ({onCreateModal}) => {
+const Header = ({onCreateModal, weatherLocation}) => {
     return (
         <header className='header'>
                 <div className="header__menu-left">
                 <div className="header__logo">
                     <img src={require('../images/Logo_wtwr.svg').default} alt='logo'></img>
                     </div>
-                <div className="header__date-location">August 23, Denver, CO</div>
+                <div className="header__date-location">August 23, {weatherLocation}</div>
                 </div>
                 <div className="header__menu-right">
                 <div>
