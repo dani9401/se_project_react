@@ -20,7 +20,7 @@ function App() {
     const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
     // the defaultClothingItems (ie: the card) is also an object.
     const [weatherTemp, setWeatherTemp] = useState(0);
-    const [weatherLocation, setWeatherLocation] = useState({});
+    const [weatherLocation, setWeatherLocation] = useState("");
 
     const handleCreateModal = () => {
         setActiveModal("create");
@@ -38,9 +38,7 @@ function App() {
     useEffect(() => {
         getWeatherForecast().then((data) => {
             const temperature = parseWeatherData(data);
-            console.log(temperature);
             const location = parseLocationData(data);
-            console.log(location);
             setWeatherTemp(temperature);
             setWeatherLocation(location);
         })
