@@ -25,7 +25,7 @@ const imageSourceURL = imageSource[0].url || "" //empty string at end for defens
 
     return (
         <section id='weather' className="weather">
-                    <div className="weather__info">{weatherTemp}°F</div>
+                    <h2 className="weather__info">{weatherTemp}°F</h2>
                     <img className="weather__image" src={imageSourceURL} alt='weather image'></img>
                 </section>
     )
