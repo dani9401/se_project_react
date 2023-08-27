@@ -35,6 +35,11 @@ function App() {
         setSelectedCard(card);
     };
 
+    const handleEscape = (e) => {
+        if (e.key === "Escape") {
+            handleCloseModal();
+        }
+    }
 
     useEffect(() => {
         getWeatherForecast().then((data) => {
@@ -44,6 +49,14 @@ function App() {
             setWeatherLocation(location);
         })
     }, []);
+
+    useEffect(() => {
+        document.addEventListener("keydown", handleEscape);
+    
+        return () => {
+          document.removeEventListener("keydown", handleEscape);
+        };
+      }, [handleCloseModal]);
 
     return (
         <div>
