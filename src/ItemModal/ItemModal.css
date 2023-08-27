@@ -34,3 +34,26 @@
     margin-top: 12px;
     margin-bottom: 32px;
 }
+
+@media screen and (max-width: 555px) {
+    .modal__container-image {
+        max-width: 90vw;
+        max-height: 600px;
+    }
+
+    .modal__image-preview {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .modal__container-image {
+        max-height: 500px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .modal__container-image {
+        max-height: 440px;
+    }
+}

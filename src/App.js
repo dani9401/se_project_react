@@ -35,6 +35,7 @@ function App() {
         setSelectedCard(card);
     };
 
+
     useEffect(() => {
         getWeatherForecast().then((data) => {
             const temperature = parseWeatherData(data);
