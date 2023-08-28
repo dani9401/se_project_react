@@ -1,12 +1,14 @@
-import Header from './Header/Header.js'
-import Main from './Main/Main.js';
-import Footer from './Footer/Footer.js';
-import ModalWithForm from './ModalWithForm/ModalWithForm.js';
-import "./ModalWithForm/ModalWithForm.css"
-import "./ItemModal/ItemModal.css"
-import ItemModal from './ItemModal/ItemModal.js';
+import Header from '../Header/Header.js'
+import Main from '../Main/Main.js';
+import Footer from '../Footer/Footer.js';
+import ModalWithForm from '../ModalWithForm/ModalWithForm.js';
+import ItemModal from '../ItemModal/ItemModal.js';
+import "./App.css";
+//import "./ModalWithForm/ModalWithForm.css"
+//import "./ItemModal/ItemModal.css"
+import { getWeatherForecast, parseLocationData, parseWeatherData } from '../utils/weatherAPI.js';
 import { useEffect, useState } from 'react';
-import { getWeatherForecast, parseLocationData, parseWeatherData } from './utils/weatherAPI.js';
+
 
 function App() {
     const [activeModal, setActiveModal] = useState(''); //setting the default values for modals 
