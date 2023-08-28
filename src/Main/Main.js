@@ -20,7 +20,10 @@ function Main({weatherTemp, onSelectCard}) {
         return item.weather.toLowerCase() === weatherType; //toLowerCase removes possibility that card might have weather style in non-identical string, ie; Hot vs hot
     })
 
-    return <main className="main">
+    console.log(filteredCards)
+
+    return (
+        <main className="main">
         <WeatherCard day={false} type='storm' weatherTemp={weatherTemp} />
         <section className="card__section" id='card'>
             <h2 className="card__section-title">Today is {weatherTemp}°F / You may want to wear:</h2>
@@ -28,7 +31,7 @@ function Main({weatherTemp, onSelectCard}) {
                 <ItemCard item={item} onSelectCard={onSelectCard}/>
             ))}</div>
         </section>
-    </main>;
+    </main>);
 }
 
 export default Main;
