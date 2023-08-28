@@ -81,15 +81,15 @@ function App() {
                 <div className="modal__radio-inputs">
                     <div>
                         <input className="modal__radio-button" type="radio" id="hot" value="hot" name="radio-button-weather"></input>
-                        <label>Hot</label>
+                        <label className="modal__radio-button-label">Hot</label>
                     </div>
                     <div>
                         <input className="modal__radio-button" type="radio" id="warm" value="warm" name="radio-button-weather"></input>
-                        <label>Warm</label>
+                        <label className="modal__radio-button-label">Warm</label>
                     </div>
                     <div>
                         <input className="modal__radio-button" type="radio" id="cold" value="cold" name="radio-button-weather"></input>
-                        <label>Cold</label>
+                        <label className="modal__radio-button-label">Cold</label>
                     </div>
                 </div>
             </ModalWithForm>
