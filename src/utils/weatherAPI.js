@@ -10,6 +10,7 @@ export const getWeatherForecast = () => {
             return Promise.reject(`Error`);
         }
     })
+    .catch(console.error);
     return weatherApi;
 }
 
