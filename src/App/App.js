@@ -70,11 +70,11 @@ function App() {
                 <div className="modal__text-inputs">
                 <label className='modal__label'> 
                     Name
-                    <input inputType="text" name='name' placeholder="Name" minLength="1" maxLength="30" className="modal__input"></input>
+                    <input type="text" name='name' placeholder="Name" minLength="1" maxLength="30" className="modal__input"></input>
                 </label>
                 <label className='modal__label'>
                     Image
-                    <input inputType="url" name='link' placeholder="Image URL" minLength="1" maxLength="200" className="modal__input"></input>
+                    <input type="url" name='link' placeholder="Image URL" minLength="1" maxLength="200" className="modal__input"></input>
                 </label>
                 </div>
                 <p className="modal__select-weather">Select Weather Type:</p>
