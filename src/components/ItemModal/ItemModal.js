@@ -1,4 +1,3 @@
-//import '../ModalWithForm/ModalWithForm.css'
 import "../ItemModal/ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose }) => {
@@ -10,7 +9,11 @@ const ItemModal = ({ selectedCard, onClose }) => {
           onClick={onClose}
           className="modal__close-button modal__close-button-white"
         ></button>
-        <img src={selectedCard.link} className="modal__image-preview"></img>
+        <img
+          src={selectedCard.link}
+          className="modal__image-preview"
+          alt="image-preview"
+        ></img>
         <div className="modal__item-name">{selectedCard.name}</div>
         <div className="modal__weather-type">
           Weather Type: {selectedCard.weather}
