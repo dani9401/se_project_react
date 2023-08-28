@@ -1,8 +1,6 @@
 import "./Header.css";
 import Logo from "../../images/Logo_wtwr.svg";
-import Avatar from "../../images/avatar.svg"
-
-console.log(Avatar)
+import Avatar from "../../images/avatar.svg";
 
 const Header = ({ onCreateModal, weatherLocation }) => {
   return (
@@ -25,11 +23,7 @@ const Header = ({ onCreateModal, weatherLocation }) => {
         </div>
         <h3 className="header__name">Danielle Foss</h3>
         <div>
-          <img
-            src={Avatar}
-            alt="avatar"
-            className="header__avatar"
-          ></img>
+          <img src={Avatar} alt="avatar" className="header__avatar"></img>
         </div>
       </div>
     </header>
