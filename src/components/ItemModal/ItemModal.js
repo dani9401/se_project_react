@@ -1,5 +1,5 @@
 //import '../ModalWithForm/ModalWithForm.css'
-import "./ItemModal.css"
+import "../ItemModal/ItemModal.css"
 
 const ItemModal = ({selectedCard, onClose}) => {
     return (
