@@ -33,7 +33,7 @@
 
 .header__add-button {
     border: none;
-    padding: 0px;
+    padding: 5px 0px 5px 0px;
     background-color: #fff;
     color: #000;
     font-family: "Cabinet Grotesk", Arial, sans-serif;
@@ -100,6 +100,32 @@
     }
     .header__add-button {
         font-size: 12px;
+    }
+    .header__avatar {
+        padding-left: 5px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header {
+        padding: 5px 10px 0px 10px;
+    }
+    .header__menu-left {
+        gap: 0px;
+        text-align: center;
+    }
+    .header__name {
+        font-size: 10px;
+        text-align: center;
+        padding-left: 5px;
+    }
+    .header__date-location{
+        font-size: 10px;
+        text-align: center;
+    }
+    .header__add-button {
+        font-size: 10px;
+        text-align: center;
     }
     .header__avatar {
         padding-left: 5px;

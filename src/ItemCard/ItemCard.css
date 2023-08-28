@@ -93,3 +93,12 @@
     }
 
 }
+
+@media screen and (max-width: 320px) {
+    .card__section {
+        margin-top: 0px;
+    }
+    .card__section-title {
+        font-size: 10px;
+    }
+}
