@@ -8,9 +8,7 @@ const Header = ({ onCreateModal, weatherLocation }) => {
         <div className="header__logo">
           <img src={Logo} alt="WTWR-logo"></img>
         </div>
-        <div className="header__date-location">
-          August 23, {weatherLocation}
-        </div>
+        <h3 className="header__date-location">August 23, {weatherLocation}</h3>
       </div>
       <div className="header__menu-right">
         <div>
@@ -22,7 +20,7 @@ const Header = ({ onCreateModal, weatherLocation }) => {
             + Add Clothes
           </button>
         </div>
-        <div className="header__name">Danielle Foss</div>
+        <h3 className="header__name">Danielle Foss</h3>
         <div>
           <img
             src={require("../../images/avatar.svg").default}
