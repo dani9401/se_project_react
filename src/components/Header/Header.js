@@ -1,15 +1,12 @@
 import "./Header.css";
-import Logo from "../../images/Logo_wtwr.svg"
+import Logo from "../../images/Logo_wtwr.svg";
 
 const Header = ({ onCreateModal, weatherLocation }) => {
   return (
     <header className="header">
       <div className="header__menu-left">
         <div className="header__logo">
-          <img
-            src={Logo}
-            alt="WTWR-logo"
-          ></img>
+          <img src={Logo} alt="WTWR-logo"></img>
         </div>
         <div className="header__date-location">
           August 23, {weatherLocation}
