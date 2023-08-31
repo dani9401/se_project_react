@@ -38,12 +38,6 @@ function App() {
     setSelectedCard(card);
   };
 
- // const handleEscape = (e) => {
- //   if (e.key === "Escape") {
- //     handleCloseModal();
- //   }
- // };
-
   useEffect(() => {
     getWeatherForecast()
       .then((data) => {

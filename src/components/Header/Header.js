@@ -1,6 +1,7 @@
 import "./Header.css";
 import Logo from "../../images/Logo_wtwr.svg";
 import Avatar from "../../images/avatar.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 const Header = ({ onCreateModal, weatherLocation }) => {
   return (
@@ -12,6 +13,7 @@ const Header = ({ onCreateModal, weatherLocation }) => {
         <h3 className="header__date-location">August 23, {weatherLocation}</h3>
       </div>
       <div className="header__menu-right">
+        <ToggleSwitch />
         <div>
           <button
             className="header__add-button"
