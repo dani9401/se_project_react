@@ -3,6 +3,7 @@ import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
 import ItemModal from "../ItemModal/ItemModal.js";
+import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 import "./App.css";
 import {
   getWeatherForecast,
@@ -24,6 +25,7 @@ function App() {
   // the defaultClothingItems (ie: the card) is also an object.
   const [weatherTemp, setWeatherTemp] = useState(0);
   const [weatherLocation, setWeatherLocation] = useState("");
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const handleCreateModal = () => {
     setActiveModal("create");
