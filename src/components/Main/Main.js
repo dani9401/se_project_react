@@ -2,15 +2,23 @@ import { defaultClothingItems } from "../../utils/constants.js";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard";
 import "../Main/Main.css";
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 
 function Main({ weatherTemp, onSelectCard }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  console.log(currentTemperatureUnit);
+
+  const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
+  console.log(temp);
+
   const weatherType = useMemo(() => {
-    if (weatherTemp >= 86) {
+    //const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
+    if (temp >= 86) {
       return "hot";
-    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+    } else if (temp >= 66 && temp <= 85) {
       return "warm";
-    } else if (weatherTemp <= 65) {
+    } else if (temp <= 65) {
       return "cold";
     }
   }, [weatherTemp]); //dependencies go in brackets
@@ -21,10 +29,15 @@ function Main({ weatherTemp, onSelectCard }) {
 
   return (
     <main className="main">
-      <WeatherCard day={false} type="storm" weatherTemp={weatherTemp} />
+      <WeatherCard
+        day={false}
+        type="storm"
+        weatherTemp={temp}
+        currentTemperatureUnit={currentTemperatureUnit}
+      />
       <section className="card__section" id="card">
         <h2 className="card__section-title">
-          Today is {weatherTemp}°F / You may want to wear:
+          Today is {temp}°{currentTemperatureUnit} / You may want to wear:
         </h2>
         <div className="card__items">
           {" "}
