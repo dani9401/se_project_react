@@ -11,6 +11,7 @@ import {
 } from "../../utils/weatherAPI.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
+import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -20,8 +21,6 @@ function App() {
   const [weatherTemp, setWeatherTemp] = useState(0);
   const [weatherLocation, setWeatherLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-
-  console.log(currentTemperatureUnit);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -78,7 +77,12 @@ function App() {
           onCreateModal={handleCreateModal}
           weatherLocation={weatherLocation}
         />
-        <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
+        <Switch>
+          <Route exact path="/">
+            <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
+          </Route>
+          <Route path="/profile">Profile</Route>
+        </Switch>
         <Footer />
         {activeModal === "create" && (
           <ModalWithForm title="New Garment" onClose={handleCloseModal}>
