@@ -13,13 +13,7 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 
 function App() {
-  const [activeModal, setActiveModal] = useState(""); //setting the default values for modals
-  //when page renders. Make sure to always use a string.
-  //this allows react to know what the starting default value is
-  //and how to move forward from that starting value
-  //so if it's a string, it's expecting string values
-  //if it's a boolean, it'll expect only booleans,
-  //if it's a number, it'll expect numbers, etc
+  const [activeModal, setActiveModal] = useState("");
 
   const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
   // the defaultClothingItems (ie: the card) is also an object.
