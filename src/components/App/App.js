@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
+import AddItemModal from "../AddItemModal/AddItemModal.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -38,6 +39,10 @@ function App() {
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  };
+
+  const onAddItem = (values) => {
+    console.log(values);
   };
 
   useEffect(() => {
@@ -85,65 +90,12 @@ function App() {
         </Switch>
         <Footer />
         {activeModal === "create" && (
-          <ModalWithForm title="New Garment" onClose={handleCloseModal}>
-            <div className="modal__text-inputs">
-              <label className="modal__label">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  minLength="1"
-                  maxLength="30"
-                  className="modal__input"
-                ></input>
-              </label>
-              <label className="modal__label">
-                Image
-                <input
-                  type="url"
-                  name="link"
-                  placeholder="Image URL"
-                  minLength="1"
-                  maxLength="200"
-                  className="modal__input"
-                ></input>
-              </label>
-            </div>
-            <p className="modal__select-weather">Select Weather Type:</p>
-            <div className="modal__radio-inputs">
-              <div>
-                <input
-                  className="modal__radio-button"
-                  type="radio"
-                  id="hot"
-                  value="hot"
-                  name="radio-button-weather"
-                ></input>
-                <label className="modal__radio-button-label">Hot</label>
-              </div>
-              <div>
-                <input
-                  className="modal__radio-button"
-                  type="radio"
-                  id="warm"
-                  value="warm"
-                  name="radio-button-weather"
-                ></input>
-                <label className="modal__radio-button-label">Warm</label>
-              </div>
-              <div>
-                <input
-                  className="modal__radio-button"
-                  type="radio"
-                  id="cold"
-                  value="cold"
-                  name="radio-button-weather"
-                ></input>
-                <label className="modal__radio-button-label">Cold</label>
-              </div>
-            </div>
-          </ModalWithForm>
+          <AddItemModal
+            handleCloseModal={handleCloseModal}
+            onClose={handleCloseModal}
+            onOpen={activeModal === "create"}
+            onAddItem={onAddItem}
+          />
         )}
         {activeModal === "preview" && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
