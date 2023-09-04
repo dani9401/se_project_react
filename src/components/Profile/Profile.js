@@ -4,11 +4,11 @@ import Avatar from "../../images/avatar.svg";
 import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 
-const filteredCards = defaultClothingItems.filter((item) => {
-  return item; //toLowerCase removes possibility that card might have weather style in non-identical string, ie; Hot vs hot
+const myClothingItems = defaultClothingItems.filter((item) => {
+  return item;
 });
 
-const Profile = () => {
+const Profile = ({ onCreateModal }) => {
   return (
     <section className="profile">
       <div className="profile__sidebar">
@@ -18,13 +18,17 @@ const Profile = () => {
       <div className="profile__menu">
         <div className="profile__menu-top">
           <h3 className="profile__menu-title">Your Items:</h3>
-          <button type="button" className="profile__addItems-button">
+          <button
+            type="button"
+            className="profile__addItems-button"
+            onClick={onCreateModal}
+          >
             +Add Items
           </button>
         </div>
         <div className="profile__item-list">
           {" "}
-          {filteredCards.map((item) => (
+          {myClothingItems.map((item) => (
             <ItemCard key={item._id} item={item} />
           ))}
         </div>

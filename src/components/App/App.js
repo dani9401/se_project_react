@@ -3,6 +3,7 @@ import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
 import ItemModal from "../ItemModal/ItemModal.js";
+import Profile from "../Profile/Profile.js";
 import "./App.css";
 import {
   getWeatherForecast,
@@ -41,7 +42,7 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const onAddItem = (values) => {
+  const handleAddItemSubmit = (values) => {
     console.log(values);
   };
 
@@ -86,7 +87,9 @@ function App() {
           <Route exact path="/">
             <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
           </Route>
-          <Route path="/profile">Profile</Route>
+          <Route path="/profile">
+            <Profile onCreateModal={handleCreateModal} />
+          </Route>
         </Switch>
         <Footer />
         {activeModal === "create" && (
@@ -94,7 +97,7 @@ function App() {
             handleCloseModal={handleCloseModal}
             onClose={handleCloseModal}
             onOpen={activeModal === "create"}
-            onAddItem={onAddItem}
+            onAddItem={handleAddItemSubmit}
           />
         )}
         {activeModal === "preview" && (
