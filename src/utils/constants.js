@@ -1,3 +1,5 @@
+// - - - DEFAULT CLOTHING ITEMS - - - //
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -36,6 +38,8 @@ export const defaultClothingItems = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
 ];
+
+// - - - WEATHER API & WEATHER OPTIONS - - - //
 
 export const latitude = 39.73;
 export const longitude = -104.99;
@@ -103,3 +107,12 @@ export const weatherOptions = [
     type: "storm",
   },
 ];
+
+// - - - CLOTHING API - - - //
+
+export const baseUrl = "http://localhost:3002";
+
+export const headers = {
+  authorization: "",
+  "Content-Type": "application/json",
+};

@@ -1,10 +1,11 @@
 import "../ItemCard/ItemCard.css";
 
 const ItemCard = ({ item, onSelectCard }) => {
+  console.log(item);
   return (
     <div className="card__element">
       <img
-        src={item.link}
+        src={item.imageUrl}
         className="card__image"
         onClick={() => onSelectCard(item)}
         alt="card-image"

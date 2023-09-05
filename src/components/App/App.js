@@ -1,7 +1,6 @@
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
-import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
 import ItemModal from "../ItemModal/ItemModal.js";
 import Profile from "../Profile/Profile.js";
 import "./App.css";
@@ -14,15 +13,21 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
+import { defaultClothingItems } from "../../utils/constants.js";
+import { getClothingItems, postNewClothingItem } from "../../utils/api.js";
 
 function App() {
+  // ----------------USE STATE ---------------------------
   const [activeModal, setActiveModal] = useState("");
-
+  const [clothingItems, setClothingItems] = useState({});
+  const [newClothingItem, setNewClothingItem] = useState({});
   const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
   // the defaultClothingItems (ie: the card) is also an object.
   const [weatherTemp, setWeatherTemp] = useState(0);
   const [weatherLocation, setWeatherLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+
+  // ----------------HANDLERS ---------------------------
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -44,17 +49,38 @@ function App() {
 
   const handleAddItemSubmit = (values) => {
     console.log(values);
+    postNewClothingItem(values)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
   };
+
+  // ----------------USE EFFECT ---------------------------
 
   useEffect(() => {
     getWeatherForecast()
       .then((data) => {
         const temperature = parseWeatherData(data);
         const location = parseLocationData(data);
-        //const temperatureUnit =
         setWeatherTemp(temperature);
         setWeatherLocation(location);
-        //setCurrentTemperatureUnit();
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getClothingItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect((values) => {
+    postNewClothingItem(values)
+      .then((data) => {
+        setNewClothingItem(data);
       })
       .catch(console.error);
   }, []);
@@ -85,10 +111,17 @@ function App() {
         />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
+            <Main
+              weatherTemp={weatherTemp}
+              onSelectCard={handleSelectedCard}
+              clothingItems={clothingItems}
+            />
           </Route>
           <Route path="/profile">
-            <Profile onCreateModal={handleCreateModal} />
+            <Profile
+              onCreateModal={handleCreateModal}
+              clothingItems={clothingItems}
+            />
           </Route>
         </Switch>
         <Footer />
