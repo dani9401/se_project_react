@@ -19,7 +19,7 @@ import { getClothingItems, postNewClothingItem } from "../../utils/api.js";
 function App() {
   // ----------------USE STATE ---------------------------
   const [activeModal, setActiveModal] = useState("");
-  const [clothingItems, setClothingItems] = useState({});
+  const [clothingItems, setClothingItems] = useState([]);
   const [newClothingItem, setNewClothingItem] = useState({});
   const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
   // the defaultClothingItems (ie: the card) is also an object.

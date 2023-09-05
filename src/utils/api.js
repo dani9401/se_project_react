@@ -14,37 +14,32 @@ export const getClothingItems = () => {
 };
 
 export const postNewClothingItem = (name, weather, link) => {
-  return (
-    fetch(`${baseUrl}/items`),
-    {
-      method: "POST",
-      //body: JSON.stringify({
-      //  name: nameData,
-      //  link: linkData,
-      //}),
-    }.then((res) => {
-      if (res.ok) {
-        Promise.resolve("Promise Resolved");
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-  );
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    body: JSON.stringify({
+      name: name,
+      imageUrl: link,
+      weather: weather,
+    }),
+  }).then((res) => {
+    if (res.ok) {
+      Promise.resolve("Promise Resolved");
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  });
 };
 
 const deleteClothingItems = (id) => {
-  return (
-    fetch(`${baseUrl}/items/:${id}`),
-    { method: "DELETE" }.then((res) => {
-      if (res.ok) {
-        Promise.resolve("Promise Resolved");
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-  );
+  return fetch(`${baseUrl}/items/:${id}`, { method: "DELETE" }).then((res) => {
+    if (res.ok) {
+      Promise.resolve("Promise Resolved");
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  });
 };
 
 export const createNewClothingItem = (data) => {
