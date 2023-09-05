@@ -8,14 +8,14 @@ const myClothingItems = defaultClothingItems.filter((item) => {
   return item;
 });
 
-const Profile = ({ onCreateModal }) => {
+const Profile = ({ onCreateModal, clothingItems }) => {
   return (
     <section className="profile">
       <div className="profile__sidebar">
         <img className="profile__avatar" src={Avatar} alt="avatar"></img>
         <div className="profile__name">Danielle Foss</div>
       </div>
-      <div className="profile__menu">
+      <div className="profile__clothes-section">
         <div className="profile__menu-top">
           <h3 className="profile__menu-title">Your Items:</h3>
           <button
@@ -28,7 +28,7 @@ const Profile = ({ onCreateModal }) => {
         </div>
         <div className="profile__item-list">
           {" "}
-          {myClothingItems.map((item) => (
+          {clothingItems.map((item) => (
             <ItemCard key={item._id} item={item} />
           ))}
         </div>
