@@ -23,6 +23,7 @@ export const postNewClothingItem = (name, weather, link) => {
     }),
   }).then((res) => {
     if (res.ok) {
+      console.log(res);
       Promise.resolve("Promise Resolved");
       return res.json();
     } else {
