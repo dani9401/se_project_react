@@ -19,10 +19,11 @@ export const postNewClothingItem = (newItem) => {
     method: "POST",
     body: JSON.stringify({
       name: newItem.name,
+      weather: newItem.weather,
       imageUrl: newItem.imageUrl,
-      weather: newItem.weatherType,
     }),
   }).then((res) => {
+    console.log(res);
     if (res.ok) {
       Promise.resolve("Promise Resolved");
       return res.json();

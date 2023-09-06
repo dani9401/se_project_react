@@ -56,8 +56,8 @@ function App() {
     };
     console.log(newItem);
     postNewClothingItem(newItem)
-      .then((data) => {
-        console.log(data);
+      .then((res) => {
+        console.log(res);
         setNewClothingItem([newItem, ...clothingItems]);
         handleCloseModal();
       })
