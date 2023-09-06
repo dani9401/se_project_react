@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
-import { defaultClothingItems } from "../../utils/constants.js";
+//import { defaultClothingItems } from "../../utils/constants.js";
 import { getClothingItems, postNewClothingItem } from "../../utils/api.js";
 
 function App() {
@@ -49,9 +49,17 @@ function App() {
 
   const handleAddItemSubmit = (values) => {
     console.log(values);
-    postNewClothingItem(values)
+    const newItem = {
+      name: values.name,
+      imageUrl: values.imageUrl,
+      weather: values.weatherType,
+    };
+    console.log(newItem);
+    postNewClothingItem(newItem)
       .then((data) => {
         console.log(data);
+        setNewClothingItem([newItem, ...clothingItems]);
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -77,13 +85,13 @@ function App() {
       .catch(console.error);
   }, []);
 
-  useEffect((values) => {
-    postNewClothingItem(values)
-      .then((data) => {
-        setNewClothingItem(data);
-      })
-      .catch(console.error);
-  }, []);
+  //useEffect((values) => {
+  //  postNewClothingItem(values)
+  //    .then((data) => {
+  //      setNewClothingItem(data);
+  //    })
+  //    .catch(console.error);
+  //}, []);
 
   useEffect(() => {
     if (!activeModal) return; // stop the effect not to add the listener if there is no active modal

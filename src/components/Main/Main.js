@@ -10,8 +10,6 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
 
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
 
-  console.log({ clothingItems });
-
   const weatherType = useMemo(() => {
     if (temp >= 86) {
       return "hot";
@@ -25,8 +23,6 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType; //toLowerCase removes possibility that card might have weather style in non-identical string, ie; Hot vs hot
   });
-
-  console.log(filteredCards);
 
   return (
     <main className="main">

@@ -8,22 +8,22 @@ export const getClothingItems = () => {
       Promise.resolve("Promise Resolved");
       return res.json();
     } else {
+      console.error(res);
       return Promise.reject(`Error: ${res.status}`);
     }
   });
 };
 
-export const postNewClothingItem = (name, weather, link) => {
+export const postNewClothingItem = (newItem) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({
-      name: name,
-      imageUrl: link,
-      weather: weather,
+      name: newItem.name,
+      imageUrl: newItem.imageUrl,
+      weather: newItem.weatherType,
     }),
   }).then((res) => {
     if (res.ok) {
-      console.log(res);
       Promise.resolve("Promise Resolved");
       return res.json();
     } else {
