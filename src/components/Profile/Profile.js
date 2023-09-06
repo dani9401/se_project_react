@@ -8,7 +8,7 @@ const myClothingItems = defaultClothingItems.filter((item) => {
   return item;
 });
 
-const Profile = ({ onCreateModal, clothingItems }) => {
+const Profile = ({ onCreateModal, clothingItems, onSelectCard }) => {
   return (
     <section className="profile">
       <div className="profile__sidebar">
@@ -29,7 +29,7 @@ const Profile = ({ onCreateModal, clothingItems }) => {
         <div className="profile__item-list">
           {" "}
           {clothingItems.map((item) => (
-            <ItemCard key={item._id} item={item} />
+            <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
           ))}
         </div>
       </div>

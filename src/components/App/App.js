@@ -38,6 +38,7 @@ function App() {
   };
 
   const handleSelectedCard = (card) => {
+    console.log(card);
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -48,7 +49,6 @@ function App() {
   };
 
   const handleAddItemSubmit = (values) => {
-    console.log(values);
     const newItem = {
       name: values.name,
       imageUrl: values.imageUrl,
@@ -57,12 +57,13 @@ function App() {
     console.log(newItem);
     postNewClothingItem(newItem)
       .then((res) => {
-        console.log(res);
         setNewClothingItem([newItem, ...clothingItems]);
         handleCloseModal();
       })
       .catch(console.error);
   };
+
+  const handleDeleteItemSubmit = () => {};
 
   // ----------------USE EFFECT ---------------------------
 
@@ -129,6 +130,7 @@ function App() {
             <Profile
               onCreateModal={handleCreateModal}
               clothingItems={clothingItems}
+              onSelectCard={handleSelectedCard}
             />
           </Route>
         </Switch>
