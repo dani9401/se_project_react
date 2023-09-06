@@ -1,12 +1,7 @@
 import React from "react";
 import "./Profile.css";
 import Avatar from "../../images/avatar.svg";
-import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
-
-const myClothingItems = defaultClothingItems.filter((item) => {
-  return item;
-});
 
 const Profile = ({ onCreateModal, clothingItems, onSelectCard }) => {
   return (

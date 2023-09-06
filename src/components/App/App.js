@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
-//import { defaultClothingItems } from "../../utils/constants.js";
 import { getClothingItems, postNewClothingItem } from "../../utils/api.js";
 
 function App() {

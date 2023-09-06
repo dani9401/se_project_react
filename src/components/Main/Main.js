@@ -1,4 +1,3 @@
-import { defaultClothingItems } from "../../utils/constants.js";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard";
 import "../Main/Main.css";
