@@ -13,7 +13,11 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
-import { getClothingItems, postNewClothingItem } from "../../utils/api.js";
+import {
+  deleteClothingItems,
+  getClothingItems,
+  postNewClothingItem,
+} from "../../utils/api.js";
 
 function App() {
   // ----------------USE STATE ---------------------------
@@ -53,7 +57,6 @@ function App() {
       imageUrl: values.imageUrl,
       weather: values.weatherType,
     };
-    console.log(newItem);
     postNewClothingItem(newItem)
       .then((res) => {
         setNewClothingItem([newItem, ...clothingItems]);
@@ -62,7 +65,15 @@ function App() {
       .catch(console.error);
   };
 
-  const handleDeleteItemSubmit = () => {};
+  const handleDeleteItemSubmit = (id) => {
+    console.log(id);
+    deleteClothingItems(id)
+      .then((res) => {
+        console.log(res);
+        handleCloseModal();
+      })
+      .catch(console.error);
+  };
 
   // ----------------USE EFFECT ---------------------------
 
@@ -84,14 +95,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-  //useEffect((values) => {
-  //  postNewClothingItem(values)
-  //    .then((data) => {
-  //      setNewClothingItem(data);
-  //    })
-  //    .catch(console.error);
-  //}, []);
 
   useEffect(() => {
     if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
@@ -143,7 +146,11 @@ function App() {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            onDeleteItem={handleDeleteItemSubmit}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

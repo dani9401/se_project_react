@@ -1,6 +1,12 @@
 import "../ItemModal/ItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
+  console.log(selectedCard);
+
+  const handleDeleteItemSubmit = () => {
+    onDeleteItem(selectedCard._id);
+  };
+
   return (
     <div className={`modal`}>
       <div className="modal__container-image">
@@ -18,7 +24,11 @@ const ItemModal = ({ selectedCard, onClose }) => {
         <div className="modal__weather-type">
           Weather Type: {selectedCard.weather}
         </div>
-        <button type="button" className="modal__delete-button">
+        <button
+          type="button"
+          className="modal__delete-button"
+          onClick={handleDeleteItemSubmit}
+        >
           Delete Item
         </button>
       </div>

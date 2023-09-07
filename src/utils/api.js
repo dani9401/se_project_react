@@ -40,12 +40,19 @@ export const postNewClothingItem = (newItem) => {
   });
 };
 
-const deleteClothingItems = (id) => {
-  return fetch(`${baseUrl}/items/:${id}`, { method: "DELETE" }).then((res) => {
+export const deleteClothingItems = (id) => {
+  return fetch(`${baseUrl}/items/:${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
     if (res.ok) {
+      console.log(res);
       Promise.resolve("Promise Resolved");
       return res.json();
     } else {
+      console.log(res);
       return Promise.reject(`Error: ${res.status}`);
     }
   });
