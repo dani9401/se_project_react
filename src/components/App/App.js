@@ -66,10 +66,8 @@ function App() {
   };
 
   const handleDeleteItemSubmit = (id) => {
-    console.log(id);
     deleteClothingItems(id)
       .then((res) => {
-        console.log(res);
         handleCloseModal();
       })
       .catch(console.error);

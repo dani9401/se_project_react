@@ -1,8 +1,6 @@
 import "../ItemModal/ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
-  console.log(selectedCard);
-
   const handleDeleteItemSubmit = () => {
     onDeleteItem(selectedCard._id);
   };

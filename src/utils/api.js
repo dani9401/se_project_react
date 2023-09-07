@@ -8,7 +8,6 @@ export const getClothingItems = () => {
     },
   }).then((res) => {
     if (res.ok) {
-      console.log(res);
       Promise.resolve("Promise Resolved");
       return res.json();
     } else {
