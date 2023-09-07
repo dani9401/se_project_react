@@ -41,7 +41,7 @@ export const postNewClothingItem = (newItem) => {
 };
 
 export const deleteClothingItems = (id) => {
-  return fetch(`${baseUrl}/items/:${id}`, {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
