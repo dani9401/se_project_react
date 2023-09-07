@@ -3,11 +3,11 @@ import "../ItemModal/ItemModal.css";
 const ItemModal = ({ selectedCard, onClose }) => {
   return (
     <div className={`modal`}>
-      <div className="modal__container modal__container-image">
+      <div className="modal__container-image">
         <button
           type="button"
           onClick={onClose}
-          className="modal__close-button modal__close-button-white"
+          className="modal__close-button-white"
         ></button>
         <img
           src={selectedCard.imageUrl}
