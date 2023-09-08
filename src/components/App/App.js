@@ -64,9 +64,14 @@ function App() {
       .catch(console.error);
   };
 
-  const handleDeleteItemSubmit = (id) => {
-    deleteClothingItems(id)
+  const handleDeleteItemSubmit = (cardID) => {
+    console.log(cardID);
+    deleteClothingItems(cardID)
       .then((res) => {
+        const newClothingItems = clothingItems.filter((cards) => {
+          return cards.id !== cardID;
+        });
+        setClothingItems(newClothingItems);
         handleCloseModal();
       })
       .catch(console.error);

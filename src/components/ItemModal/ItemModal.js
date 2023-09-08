@@ -2,7 +2,7 @@ import "../ItemModal/ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
   const handleDeleteItemSubmit = () => {
-    onDeleteItem(selectedCard._id);
+    onDeleteItem(selectedCard.id);
   };
 
   return (

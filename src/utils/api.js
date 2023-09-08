@@ -39,6 +39,7 @@ export const postNewClothingItem = (newItem) => {
 };
 
 export const deleteClothingItems = (id) => {
+  console.log(id);
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
@@ -46,11 +47,9 @@ export const deleteClothingItems = (id) => {
     },
   }).then((res) => {
     if (res.ok) {
-      console.log(res);
       Promise.resolve("Promise Resolved");
       return res.json();
     } else {
-      console.log(res);
       return Promise.reject(`Error: ${res.status}`);
     }
   });
@@ -59,7 +58,7 @@ export const deleteClothingItems = (id) => {
 export const createNewClothingItem = (data) => {
   data.forEach((item) => {
     const newClothingItem = {
-      _id: item._id,
+      id: item.id,
       name: item.name,
       weather: item.weather,
       link: item.imageUrl,
