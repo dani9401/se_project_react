@@ -1,7 +1,7 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 
-const ClothingSection = ({ onCreateModal, clothingItems, onSelectCard }) => {
+const ClothesSection = ({ onCreateModal, clothingItems, onSelectCard }) => {
   return (
     <div className="profile__clothes-section">
       <div className="profile__menu-top">
@@ -24,4 +24,4 @@ const ClothingSection = ({ onCreateModal, clothingItems, onSelectCard }) => {
   );
 };
 
-export default ClothingSection;
+export default ClothesSection;

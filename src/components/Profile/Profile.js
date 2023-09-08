@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
-import ClothingSection from "../ClothesSection/ClothesSection";
+import ClothesSection from "../ClothesSection/ClothesSection";
 
 const Profile = ({ onCreateModal, clothingItems, onSelectCard }) => {
   return (
@@ -9,7 +9,7 @@ const Profile = ({ onCreateModal, clothingItems, onSelectCard }) => {
       <div className="profile__sidebar">
         <SideBar />
       </div>
-      <ClothingSection
+      <ClothesSection
         onCreateModal={onCreateModal}
         clothingItems={clothingItems}
         onSelectCard={onSelectCard}
