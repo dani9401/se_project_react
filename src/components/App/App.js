@@ -57,7 +57,8 @@ function App() {
     };
     postNewClothingItem(newItem)
       .then((res) => {
-        setNewClothingItem([newItem, ...clothingItems]);
+        console.log(res);
+        setNewClothingItem([res, ...clothingItems]);
         handleCloseModal();
       })
       .catch(console.error);

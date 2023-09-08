@@ -29,7 +29,6 @@ export const postNewClothingItem = (newItem) => {
       imageUrl: newItem.imageUrl,
     }),
   }).then((res) => {
-    console.log(res);
     if (res.ok) {
       Promise.resolve("Promise Resolved");
       return res.json();

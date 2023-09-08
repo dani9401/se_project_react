@@ -35,7 +35,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
         <h2 className="card__section-title">
           Today is {temp}°{currentTemperatureUnit} / You may want to wear:
         </h2>
-        <div className="card__items">
+        <div className="card__items" id="card-section">
           {" "}
           {filteredCards.map((item) => (
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
