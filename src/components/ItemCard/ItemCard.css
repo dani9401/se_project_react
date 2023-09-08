@@ -51,6 +51,11 @@
   .card__section {
     margin-top: 20px;
   }
+
+  .card__image {
+    max-width: 291px;
+    max-height: 291px;
+  }
 }
 
 @media screen and (max-width: 635px) {
@@ -78,8 +83,8 @@
     margin-top: 10px;
   }
   .card__image {
-    max-width: 175px;
-    max-height: 175px;
+    max-width: 150px;
+    max-height: 150px;
   }
   .card__section-title {
     font-size: 12px;

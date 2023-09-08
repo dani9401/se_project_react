@@ -10,7 +10,11 @@ const Header = ({ onCreateModal, weatherLocation }) => {
       <div className="header__menu-left">
         <div className="header__logo">
           <Link to="/">
-            <img src={Logo} alt="WTWR-logo"></img>
+            <img
+              src={Logo}
+              alt="WTWR-logo"
+              className="header__logo-image"
+            ></img>
           </Link>
         </div>
         <h3 className="header__date-location">August 23, {weatherLocation}</h3>

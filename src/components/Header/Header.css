@@ -17,6 +17,11 @@
   max-height: 40px;
 }
 
+.header__logo-image {
+  max-width: 89px;
+  max-height: 40px;
+}
+
 .header__date-location {
   color: #000;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
@@ -56,6 +61,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.2;
+  text-align: center;
 }
 
 .header__avatar {
@@ -68,27 +74,35 @@
   .header {
     padding: 20px 25px 15px 25px;
   }
+
+  .header__add-button {
+    padding: 5px 10px 5px 10px;
+  }
 }
 
 @media screen and (max-width: 635px) {
   .header__name {
     font-size: 15px;
-    padding-left: 10px;
+    padding-left: px;
   }
   .header__date-location {
     font-size: 15px;
   }
   .header__add-button {
     font-size: 15px;
+    padding: 5px;
   }
   .header__avatar {
-    padding-left: 10px;
   }
 }
 
 @media screen and (max-width: 452px) {
   .header {
-    padding: 15px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
+  }
+  .header__menu-left {
+    gap: 1px;
+    flex-direction: column;
   }
   .header__name {
     font-size: 12px;
@@ -96,6 +110,7 @@
   }
   .header__date-location {
     font-size: 12px;
+    margin: 0;
   }
   .header__add-button {
     font-size: 12px;

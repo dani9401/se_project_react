@@ -80,10 +80,24 @@
   .modal__container-image {
     max-height: 500px;
   }
+  .modal__delete-button {
+    bottom: 34px;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .modal__container-image {
     max-height: 440px;
+  }
+
+  .modal__delete-button {
+    bottom: 54px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .modal__delete-button {
+    bottom: 16px;
+    right: 89px;
   }
 }
