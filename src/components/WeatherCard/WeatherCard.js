@@ -8,11 +8,11 @@ const WeatherCard = ({
   weatherTemp = "",
   currentTemperatureUnit = "",
 }) => {
-  const imageSource = weatherOptions.filter((i) => {
-    return i.day === day && i.type === type;
+  const weatherOption = weatherOptions.find((option) => {
+    return option.day === day && option.type === type;
   });
 
-  const imageSourceURL = imageSource[0].url || ""; //empty string at end for defensive coding
+  const weatherOptionUrl = weatherOptions[0].url || ""; //empty string at end for defensive coding
 
   return (
     <section id="weather" className="weather">
@@ -21,7 +21,7 @@ const WeatherCard = ({
       </h2>
       <img
         className="weather__image"
-        src={imageSourceURL}
+        src={weatherOptionUrl}
         alt="weather image"
       ></img>
     </section>
