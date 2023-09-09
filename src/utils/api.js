@@ -1,20 +1,20 @@
 import React from "react";
 import { baseUrl, headers } from "./constants";
 
+const checkResponse = (res) => {
+  if (res.ok) {
+    Promise.resolve("Promise Resolved");
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+};
+
 export const getClothingItems = () => {
   return fetch(`${baseUrl}/items`, {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-    if (res.ok) {
-      Promise.resolve("Promise Resolved");
-      return res.json();
-    } else {
-      console.error(res);
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  });
+  }).then(checkResponse);
 };
 
 export const postNewClothingItem = (newItem) => {
@@ -28,14 +28,7 @@ export const postNewClothingItem = (newItem) => {
       weather: newItem.weather,
       imageUrl: newItem.imageUrl,
     }),
-  }).then((res) => {
-    if (res.ok) {
-      Promise.resolve("Promise Resolved");
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  });
+  }).then(checkResponse);
 };
 
 export const deleteClothingItems = (id) => {
@@ -45,31 +38,5 @@ export const deleteClothingItems = (id) => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-    if (res.ok) {
-      Promise.resolve("Promise Resolved");
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  });
+  }).then(checkResponse);
 };
-
-export const createNewClothingItem = (data) => {
-  data.forEach((item) => {
-    const newClothingItem = {
-      id: item.id,
-      name: item.name,
-      weather: item.weather,
-      link: item.imageUrl,
-    };
-    return newClothingItem;
-  });
-};
-
-//call api
-//call createNewClothingItem()
-// - - - this function should take the data,
-// - - - generate an array just like defaultClothingItems
-
-//getClothingItems();
