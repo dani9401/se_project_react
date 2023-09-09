@@ -71,6 +71,7 @@ export const weatherOptions = [
 
 export const baseUrl =
   "https://my-json-server.typicode.com/dani9401/se_project_react";
+//"http://localhost:3002";
 
 export const headers = {
   authorization: "",
