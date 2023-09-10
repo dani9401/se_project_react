@@ -1,13 +1,6 @@
 import React from "react";
 import { baseUrl, headers } from "./constants";
-
-const checkResponse = (res) => {
-  if (res.ok) {
-    Promise.resolve("Promise Resolved");
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
+import { checkResponse } from "./utils";
 
 export const getClothingItems = () => {
   return fetch(`${baseUrl}/items`, {
