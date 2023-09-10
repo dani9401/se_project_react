@@ -23,7 +23,7 @@ function App() {
   // ----------------USE STATE ---------------------------
   const [activeModal, setActiveModal] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
-  const [newClothingItem, setNewClothingItem] = useState({});
+  //const [newClothingItem, setNewClothingItem] = useState({});
   const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
   // the defaultClothingItems (ie: the card) is also an object.
   const [weatherTemp, setWeatherTemp] = useState(0);
@@ -56,20 +56,18 @@ function App() {
       weather: values.weatherType,
     };
     postNewClothingItem(newItem)
-      .then((res) => {
-        console.log(res);
-        setNewClothingItem([res, ...clothingItems]);
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
         handleCloseModal();
       })
       .catch(console.error);
   };
 
   const handleDeleteItemSubmit = (cardID) => {
-    console.log(cardID);
     deleteClothingItems(cardID)
       .then((res) => {
-        const newClothingItems = clothingItems.filter((cards) => {
-          return cards.id !== cardID;
+        const newClothingItems = clothingItems.filter((card) => {
+          return card.id !== cardID;
         });
         setClothingItems(newClothingItems);
         handleCloseModal();
