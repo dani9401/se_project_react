@@ -25,7 +25,6 @@ export const postNewClothingItem = (newItem) => {
 };
 
 export const deleteClothingItems = (id) => {
-  console.log(id);
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
