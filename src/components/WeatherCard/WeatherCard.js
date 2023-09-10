@@ -12,7 +12,7 @@ const WeatherCard = ({
     return option.day === day && option.type === type;
   });
 
-  const weatherOptionUrl = weatherOptions[0].url || ""; //empty string at end for defensive coding
+  const weatherOptionUrl = weatherOption.url || ""; //empty string at end for defensive coding
 
   return (
     <section id="weather" className="weather">
