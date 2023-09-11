@@ -8,6 +8,7 @@ import {
   getWeatherForecast,
   parseLocationData,
   parseWeatherData,
+  parseWeatherCondition,
 } from "../../utils/weatherAPI.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
@@ -28,6 +29,7 @@ function App() {
   // the defaultClothingItems (ie: the card) is also an object.
   const [weatherTemp, setWeatherTemp] = useState(0);
   const [weatherLocation, setWeatherLocation] = useState("");
+  //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   // ----------------HANDLERS ---------------------------
@@ -82,8 +84,10 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         const location = parseLocationData(data);
+        //const condition = parseWeatherCondition(data);
         setWeatherTemp(temperature);
         setWeatherLocation(location);
+        //setWeatherCondition(condition);
       })
       .catch(console.error);
   }, []);
