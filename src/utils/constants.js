@@ -70,8 +70,8 @@ export const weatherOptions = [
 // - - - CLOTHING API - - - //
 
 export const baseUrl =
-  "https://my-json-server.typicode.com/dani9401/se_project_react";
-//"http://localhost:3002";
+  //"https://my-json-server.typicode.com/dani9401/se_project_react";
+  "http://localhost:3001";
 
 export const headers = {
   authorization: "",
