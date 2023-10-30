@@ -3,6 +3,7 @@ import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import ItemModal from "../ItemModal/ItemModal.js";
 import LoginModal from "../LoginModal/LoginModal.js";
+import RegisterModal from "../RegisterModal/RegisterModal.js";
 import Profile from "../Profile/Profile.js";
 import "./App.css";
 import {
@@ -20,6 +21,7 @@ import {
   getClothingItems,
   postNewClothingItem,
 } from "../../utils/api.js";
+
 
 function App() {
   // ----------------USE STATE ---------------------------
@@ -177,7 +179,16 @@ function App() {
             onClose={handleCloseModal}
             onOpen={activeModal === "login"}
             onLogin={handleLogin}
-            onRegister={handleRegister}
+            onRegister={handleRegister} //show them Register Modal
+          />
+        )}
+        {activeModal === "register" && (
+          <RegisterModal
+            handleCloseModal={handleCloseModal}
+            onClose={handleCloseModal}
+            onOpen={activeModal === "register"}
+            onLogin={handleLogin} //show them Login modal
+            onRegister={handleRegister} //"Next" button
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
