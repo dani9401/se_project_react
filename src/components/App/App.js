@@ -5,6 +5,7 @@ import ItemModal from "../ItemModal/ItemModal.js";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import Profile from "../Profile/Profile.js";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import "./App.css";
 import {
   getWeatherForecast,
@@ -22,7 +23,6 @@ import {
   postNewClothingItem,
 } from "../../utils/api.js";
 
-
 function App() {
   // ----------------USE STATE ---------------------------
   const [activeModal, setActiveModal] = useState("");
@@ -34,7 +34,7 @@ function App() {
   const [weatherLocation, setWeatherLocation] = useState("");
   //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  //const [loggedIn, setLoggedIn] = useState("")
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // ----------------HANDLERS ---------------------------
 
@@ -149,13 +149,13 @@ function App() {
               clothingItems={clothingItems}
             />
           </Route>
-          <Route path="/profile">
+          <ProtectedRoute path="/profile" loggedIn={loggedIn}>
             <Profile
               onCreateModal={handleCreateModal}
               clothingItems={clothingItems}
               onSelectCard={handleSelectedCard}
             />
-          </Route>
+          </ProtectedRoute>
         </Switch>
         <Footer />
         {activeModal === "create" && (
