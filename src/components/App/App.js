@@ -2,6 +2,7 @@ import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import ItemModal from "../ItemModal/ItemModal.js";
+import LoginModal from "../LoginModal/LoginModal.js";
 import Profile from "../Profile/Profile.js";
 import "./App.css";
 import {
@@ -31,11 +32,16 @@ function App() {
   const [weatherLocation, setWeatherLocation] = useState("");
   //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  //const [loggedIn, setLoggedIn] = useState("")
 
   // ----------------HANDLERS ---------------------------
 
   const handleCreateModal = () => {
     setActiveModal("create");
+  };
+
+  const handleLoginModal = () => {
+    setActiveModal("login");
   };
 
   const handleCloseModal = () => {
@@ -76,6 +82,14 @@ function App() {
       })
       .catch(console.error);
   };
+
+  const handleLogin = () => {
+    //handle login next steps here
+  }
+
+  const handleRegister = () => {
+    //handle login next steps here
+  }
 
   // ----------------USE EFFECT ---------------------------
 
@@ -123,6 +137,7 @@ function App() {
         <Header
           onCreateModal={handleCreateModal}
           weatherLocation={weatherLocation}
+          onLoginModal={handleLoginModal}
         />
         <Switch>
           <Route exact path="/">
@@ -154,6 +169,15 @@ function App() {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             onDeleteItem={handleDeleteItemSubmit}
+          />
+        )}
+        {activeModal === "login" && (
+          <LoginModal
+            handleCloseModal={handleCloseModal}
+            onClose={handleCloseModal}
+            onOpen={activeModal === "login"}
+            onLogin={handleLogin}
+            onRegister={handleRegister}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

@@ -1,10 +1,11 @@
 import "./Header.css";
+import { useState } from "react";
 import Logo from "../../images/Logo_wtwr.svg";
 import Avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const Header = ({ onCreateModal, weatherLocation }) => {
+const Header = ({ onCreateModal, weatherLocation, onLoginModal }) => {
   return (
     <header className="header">
       <div className="header__menu-left">
