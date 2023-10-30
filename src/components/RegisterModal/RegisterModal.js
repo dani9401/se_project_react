@@ -33,6 +33,14 @@ const RegisterModal = ({handleCloseModal, isOpen}) => {
         setPassword(e.target.value);
       };
 
+      const handleNameChange = (e) => {
+        setName(e.target.value);
+      };
+
+      const handleAvatarChange = (e) => {
+        setAvatar(e.target.value);
+      };
+
     return (
         <ModalWithForm 
         title="Sign Up" 
@@ -92,7 +100,7 @@ const RegisterModal = ({handleCloseModal, isOpen}) => {
             maxLength="200"
             className="modal__input"
             value={avatar}
-            onChange={handleNameChange}
+            onChange={handleAvatarChange}
           ></input>
         </label>
       </div>
