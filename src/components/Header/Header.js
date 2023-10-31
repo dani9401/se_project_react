@@ -5,7 +5,7 @@ import Avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const Header = ({ onCreateModal, weatherLocation, onLoginModal, loggedIn }) => {
+const Header = ({ onCreateModal, weatherLocation, onLoginModal, onRegisterModal, loggedIn }) => {
   return (
     <header className="header">
       <div className="header__menu-left">
@@ -45,14 +45,14 @@ const Header = ({ onCreateModal, weatherLocation, onLoginModal, loggedIn }) => {
         <div className="header__menu-buttons">
           <button
             className="header__add-button"
-            onClick={onCreateModal}
+            onClick={onRegisterModal}
             type="text"
           >
             Sign Up
           </button>
           <button
             className="header__add-button"
-            onClick={onCreateModal}
+            onClick={onLoginModal}
             type="text"
           >
             Log In
