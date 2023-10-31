@@ -23,6 +23,7 @@ import {
   postNewClothingItem,
 } from "../../utils/api.js";
 
+
 function App() {
   // ----------------USE STATE ---------------------------
   const [activeModal, setActiveModal] = useState("");
@@ -44,6 +45,10 @@ function App() {
 
   const handleLoginModal = () => {
     setActiveModal("login");
+  };
+
+  const handleRegisterModal = () => {
+    setActiveModal("register");
   };
 
   const handleCloseModal = () => {
@@ -140,6 +145,8 @@ function App() {
           onCreateModal={handleCreateModal}
           weatherLocation={weatherLocation}
           onLoginModal={handleLoginModal}
+          onRegisterModal={handleRegisterModal}
+          loggedIn={loggedIn}
         />
         <Switch>
           <Route exact path="/">
