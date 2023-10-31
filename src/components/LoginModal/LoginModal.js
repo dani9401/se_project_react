@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm"
 
-const LoginModal = ({handleCloseModal, isOpen}) => {
+const LoginModal = ({handleCloseModal, isOpen, onLogin}) => {
     //think about what props I need for this to function
 
     const [email, setEmail] = useState("");
@@ -19,6 +19,11 @@ const LoginModal = ({handleCloseModal, isOpen}) => {
 
       const handleSubmit = (e) => {
         e.preventDefault();
+        if (!this.state.email || !this.state.password) {
+          return;
+        } else {
+          onLogin(email, password);
+        }
       };
 
       const handleEmailChange = (e) => {
