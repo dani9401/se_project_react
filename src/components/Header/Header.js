@@ -5,7 +5,7 @@ import Avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const Header = ({ onCreateModal, weatherLocation, onLoginModal }) => {
+const Header = ({ onCreateModal, weatherLocation, onLoginModal, loggedIn }) => {
   return (
     <header className="header">
       <div className="header__menu-left">
@@ -20,9 +20,10 @@ const Header = ({ onCreateModal, weatherLocation, onLoginModal }) => {
         </div>
         <h3 className="header__date-location">August 23, {weatherLocation}</h3>
       </div>
+      {loggedIn ? (
       <div className="header__menu-right">
         <ToggleSwitch />
-        <div>
+        <div className="header__menu-buttons">
           <button
             className="header__add-button"
             onClick={onCreateModal}
@@ -38,6 +39,27 @@ const Header = ({ onCreateModal, weatherLocation, onLoginModal }) => {
           <img src={Avatar} alt="avatar" className="header__avatar"></img>
         </div>
       </div>
+      ) : (
+        <div className="header__menu-right">
+        <ToggleSwitch />
+        <div className="header__menu-buttons">
+          <button
+            className="header__add-button"
+            onClick={onCreateModal}
+            type="text"
+          >
+            Sign Up
+          </button>
+          <button
+            className="header__add-button"
+            onClick={onCreateModal}
+            type="text"
+          >
+            Log In
+          </button>
+        </div>
+      </div>
+      )}
     </header>
   );
 };
