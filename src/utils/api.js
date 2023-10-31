@@ -15,6 +15,7 @@ export const postNewClothingItem = (newItem) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem('token')}`
     },
     body: JSON.stringify({
       name: newItem.name,
@@ -29,26 +30,9 @@ export const deleteClothingItems = (id) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem('token')}`
     },
   }).then(checkResponse);
 };
 
-export const postSignup = ({ name, avatar, email, password }) => {
-  return fetch(`${baseUrl}/signup`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, avatar, email, password }),
-  }).then(checkResponse);
-};
 
-export const postSignIn = ({ email, password }) => {
-  return fetch(`${baseUrl}/signin`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
-};
