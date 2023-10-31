@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm"
 
-const RegisterModal = ({handleCloseModal, isOpen}) => {
+const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
     //think about what props I need for this to function
 
     const [email, setEmail] = useState("");
@@ -21,9 +21,14 @@ const RegisterModal = ({handleCloseModal, isOpen}) => {
 
       //handlers go here
 
-      const handleSubmit = (e) => {
+      function handleSubmit(e) {
         e.preventDefault();
-      };
+      if (this.state.password === this.state.confirmPassword) {
+        let { email, password, name, avatar} = this.state;
+        onRegister(email, password, name, avatar);
+      }
+    }
+    
 
       const handleEmailChange = (e) => {
         setEmail(e.target.value);
