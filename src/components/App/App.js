@@ -15,13 +15,15 @@ import {
 } from "../../utils/weatherAPI.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
-import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
+import { CurrentUserContext} from "../../contexts/CurrentUserContext.js";
+import { Switch, Route, Link } from "react-router-dom/cjs/react-router-dom.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
 import {
   deleteClothingItems,
   getClothingItems,
   postNewClothingItem,
 } from "../../utils/api.js";
+import { postSignIn, postSignup } from "../../utils/auth.js";
 
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
   //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState("");
 
   // ----------------HANDLERS ---------------------------
 
@@ -90,12 +93,25 @@ function App() {
       .catch(console.error);
   };
 
-  const handleLogin = () => {
-    //handle login next steps here
+  const handleLoginSubmit = (email, password) => {
+    postSignIn({email, password}).then((res) => {
+      if (res.jwt) {
+        localStorage.setItem("jwt", res.jwt);
+        setLoggedIn(true);
+        handleCloseModal();
+        return res;
+      } else {
+        return;
+      }
+    }).catch(console.error)
   }
 
-  const handleRegister = () => {
-    //handle login next steps here
+  const handleRegisterSubmit = (email, password, name, avatar) => {
+    postSignup({email, password, name, avatar}).then((res) => {
+      console.log(res)
+     handleCloseModal();
+    })
+    .catch(console.error)
   }
 
   // ----------------USE EFFECT ---------------------------
@@ -141,6 +157,7 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
+        <CurrentUserContext.Provider value={currentUser}>
         <Header
           onCreateModal={handleCreateModal}
           weatherLocation={weatherLocation}
@@ -185,8 +202,8 @@ function App() {
             handleCloseModal={handleCloseModal}
             onClose={handleCloseModal}
             onOpen={activeModal === "login"}
-            onLogin={handleLogin}
-            onRegister={handleRegister} //show them Register Modal
+            onLogin={handleLoginSubmit}
+            //onRegister={handleRegister} //show them Register Modal
           />
         )}
         {activeModal === "register" && (
@@ -194,12 +211,15 @@ function App() {
             handleCloseModal={handleCloseModal}
             onClose={handleCloseModal}
             onOpen={activeModal === "register"}
-            onLogin={handleLogin} //show them Login modal
-            onRegister={handleRegister} //"Next" button
+            //onLogin={handleLogin} //show them Login modal
+            onRegister={handleRegisterSubmit} //"Next" button
           />
         )}
+        </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>
+      
     </div>
+    
   );
 }
 
