@@ -21,12 +21,17 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
 
       //handlers go here
 
-      function handleSubmit(e) {
+      const handleRegisterSubmit = (e) => {
         e.preventDefault();
       if (this.state.password === this.state.confirmPassword) {
         let { email, password, name, avatar} = this.state;
         onRegister(email, password, name, avatar);
       }
+    }
+
+    const handleLoginClick = () => {
+      //close register modal
+      //open login modal
     }
     
 
@@ -51,7 +56,6 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
         title="Sign Up" 
         onClose={handleCloseModal} 
         isOpen={isOpen} 
-        onSubmit={handleSubmit}
         modalName={"register"}>
 
         <div className="modal__text-inputs">
@@ -109,10 +113,10 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
         </label>
       </div>
       <div> 
-        <button type="submit" className="modal__submit-button modal__submit-button1 ">
+        <button type="submit" className="modal__submit-button modal__submit-button1" onClick={handleRegisterSubmit}>
             Next
           </button>
-          <button type="submit" className="modal__submit-button modal__submit-button2">
+          <button type="submit" className="modal__submit-button modal__submit-button2" onClick={handleLoginClick}>
             or Log In
           </button>
         </div> 

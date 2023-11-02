@@ -21,6 +21,10 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.modal-container-login {
+  max-height: 304px;
+}
+
 .modal__close-button {
   position: absolute;
   top: 20px;
@@ -138,7 +142,8 @@
 .modal__submit-button2 {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.50);
-  width: 75px;
+  width: 80px;
+  margin-left: 8px
 }
 
 .modal__submit-button:hover {
