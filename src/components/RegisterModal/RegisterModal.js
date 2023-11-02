@@ -52,7 +52,6 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
         onClose={handleCloseModal} 
         isOpen={isOpen} 
         onSubmit={handleSubmit}
-        buttonText={"Next"}
         modalName={"register"}>
 
         <div className="modal__text-inputs">
@@ -110,8 +109,11 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
         </label>
       </div>
       <div> 
-        <button type="submit" className="modal__submit-button">
-            or Login
+        <button type="submit" className="modal__submit-button modal__submit-button1 ">
+            Next
+          </button>
+          <button type="submit" className="modal__submit-button modal__submit-button2">
+            or Log In
           </button>
         </div> 
         </ModalWithForm>

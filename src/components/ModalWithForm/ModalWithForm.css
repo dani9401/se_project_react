@@ -66,6 +66,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.1;
+  gap: 8px;
 }
 
 .modal__input {
@@ -126,6 +127,18 @@
   padding: 0;
   cursor: pointer;
   transition: opacity 0.5s ease-in-out;
+}
+
+.modal__submit-button1 {
+  padding: 8px 16px;
+  width: 75px;
+  background: rgba(0, 0, 0, 0.30);
+}
+
+.modal__submit-button2 {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.50);
+  width: 75px;
 }
 
 .modal__submit-button:hover {
