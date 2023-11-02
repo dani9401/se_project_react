@@ -2,7 +2,6 @@ import "./ModalWithForm.css";
 
 const ModalWithForm = ({
   children,
-  buttonText,
   title,
   onClose,
   modalName,
@@ -20,9 +19,6 @@ const ModalWithForm = ({
         <h3 className="modal__title">{title}</h3>
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit-button">
-            {buttonText}
-          </button>
         </form>
       </div>
     </div>
