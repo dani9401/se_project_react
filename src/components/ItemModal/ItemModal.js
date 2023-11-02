@@ -1,6 +1,13 @@
 import "../ItemModal/ItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
+const ItemModal = ({ selectedCard, onClose, onDeleteItem, currentUser }) => {
+ // Checking if the current user is the owner of the current clothing item
+//const isOwner = selectedCard.owner.id === currentUser.id;
+
+//const itemDeleteButtonClassName = (
+//  `modal__delete-button ${isOwner ? 'modal__delete-button_visible' : 'modal__delete-button_hidden'}`
+//);
+ 
   const handleDeleteItemSubmit = () => {
     onDeleteItem(selectedCard.id);
   };
@@ -25,6 +32,7 @@ const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
         <button
           type="button"
           className="modal__delete-button"
+          //className={itemDeleteButtonClassName}
           onClick={handleDeleteItemSubmit}
         >
           Delete Item

@@ -37,7 +37,7 @@ function App() {
   const [weatherLocation, setWeatherLocation] = useState("");
   //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState("");
 
   // ----------------HANDLERS ---------------------------
@@ -195,6 +195,8 @@ function App() {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             onDeleteItem={handleDeleteItemSubmit}
+            loggedIn={loggedIn}
+            currentUser={currentUser}
           />
         )}
         {activeModal === "login" && (
