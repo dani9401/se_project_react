@@ -37,8 +37,8 @@ function App() {
   const [weatherLocation, setWeatherLocation] = useState("");
   //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [loggedIn, setLoggedIn] = useState(true);
-  const [currentUser, setCurrentUser] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   // ----------------HANDLERS ---------------------------
 
@@ -95,6 +95,7 @@ function App() {
 
   const handleLoginSubmit = (email, password) => {
     postSignIn({email, password}).then((res) => {
+      console.log(res)
       if (res.jwt) {
         localStorage.setItem("jwt", res.jwt);
         setLoggedIn(true);
@@ -109,7 +110,13 @@ function App() {
   const handleRegisterSubmit = (email, password, name, avatar) => {
     postSignup({email, password, name, avatar}).then((res) => {
       console.log(res)
+      //need the response to be the new user info - then can set
+      //that as setCurrentUser?
      handleCloseModal();
+    }).then(() => {
+      setLoggedIn(true)
+      setCurrentUser({email, password, name, avatar})
+      console.log(currentUser)
     })
     .catch(console.error)
   }
@@ -121,10 +128,8 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         const location = parseLocationData(data);
-        //const condition = parseWeatherCondition(data);
         setWeatherTemp(temperature);
         setWeatherLocation(location);
-        //setWeatherCondition(condition);
       })
       .catch(console.error);
   }, []);
@@ -151,6 +156,10 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]); // watch activeModal here
+
+  //useEffect(() => {
+  //  const jwt = localStorage.getItem()
+  //})
 
   return (
     <div>
