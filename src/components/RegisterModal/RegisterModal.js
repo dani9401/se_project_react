@@ -23,11 +23,13 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
 
       const handleRegisterSubmit = (e) => {
         e.preventDefault();
-      if (this.state.password === this.state.confirmPassword) {
-        let { email, password, name, avatar} = this.state;
+        setEmail(email);
+        setPassword(password);
+        setName(name);
+        setAvatar(avatar)
         onRegister(email, password, name, avatar);
       }
-    }
+    
 
     const handleLoginClick = () => {
       //close register modal

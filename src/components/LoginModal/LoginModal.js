@@ -19,11 +19,7 @@ const LoginModal = ({handleCloseModal, isOpen, onLogin}) => {
 
       const handleLoginSubmit = (e) => {
         e.preventDefault();
-        if (!this.state.email || !this.state.password) {
-          return;
-        } else {
-          onLogin(email, password);
-        }
+        onLogin(email, password)
       };
 
       const handleRegisterClick = () => {
