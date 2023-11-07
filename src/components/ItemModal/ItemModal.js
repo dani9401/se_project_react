@@ -1,12 +1,17 @@
 import "../ItemModal/ItemModal.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
-const ItemModal = ({ selectedCard, onClose, onDeleteItem, currentUser }) => {
+const ItemModal = ({ selectedCard, onClose, onDeleteItem}) => {
+
+  const currentUser = useContext(CurrentUserContext);
+
  // Checking if the current user is the owner of the current clothing item
-//const isOwner = selectedCard.owner.id === currentUser.id;
+const isOwner = selectedCard.owner.id === currentUser.id;
 
-//const itemDeleteButtonClassName = (
-//  `modal__delete-button ${isOwner ? 'modal__delete-button_visible' : 'modal__delete-button_hidden'}`
-//);
+const itemDeleteButtonClassName = (
+  `modal__delete-button ${isOwner ? 'modal__delete-button_visible' : 'modal__delete-button_hidden'}`
+);
  
   const handleDeleteItemSubmit = () => {
     onDeleteItem(selectedCard.id);
@@ -31,8 +36,8 @@ const ItemModal = ({ selectedCard, onClose, onDeleteItem, currentUser }) => {
         </div>
         <button
           type="button"
-          className="modal__delete-button"
-          //className={itemDeleteButtonClassName}
+          //className="modal__delete-button"
+          className={itemDeleteButtonClassName}
           onClick={handleDeleteItemSubmit}
         >
           Delete Item
