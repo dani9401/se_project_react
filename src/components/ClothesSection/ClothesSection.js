@@ -1,19 +1,14 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
-const ClothesSection = ({ onCreateModal, clothingItems, onSelectCard, currentUser }) => {
-  //get list of clothingItemIds
-//const clothingItemId = clothingItems.map((item) => {
-//  return item.id;
-//});
+const ClothesSection = ({ onCreateModal, clothingItems, onSelectCard}) => {
 
-
- // Checking if the current user is the owner of the current clothing item
-//const isOwner = clothingItemId.owner.id === currentUser.id;
-
-//return only clothing items that belong to that owner - create new array with approved 
-//items and pass to map below
-
+  const currentUser = useContext(CurrentUserContext)
+  const ownedItems = clothingItems.filter((item) => {
+  return item.owner === currentUser._id
+  })
 
   return (
     <div className="profile__clothes-section">
@@ -29,7 +24,7 @@ const ClothesSection = ({ onCreateModal, clothingItems, onSelectCard, currentUse
       </div>
       <div className="profile__item-list">
         {" "}
-        {clothingItems.map((item) => (
+        {ownedItems.map((item) => (
           <ItemCard key={item.id || item._id} item={item} onSelectCard={onSelectCard} />
         ))}
       </div>
