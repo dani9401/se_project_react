@@ -23,7 +23,7 @@ import {
   getClothingItems,
   postNewClothingItem,
 } from "../../utils/api.js";
-import { postSignIn, postSignup } from "../../utils/auth.js";
+import { postSignIn, postSignup, getUserInfo } from "../../utils/auth.js";
 
 
 function App() {
@@ -93,34 +93,34 @@ function App() {
       .catch(console.error);
   };
 
-  const handleLoginSubmit = (email, password) => {
+  const handleLogin = (email, password) => {
     postSignIn({email, password}).then((res) => {
-      console.log(res)
       if (res.jwt) {
         localStorage.setItem("jwt", res.jwt);
         setLoggedIn(true);
         handleCloseModal();
         return res;
       } else {
-        return;
+        console.log("handleLogin error")
       }
     }).catch(console.error)
   }
 
   const handleRegisterSubmit = (email, password, name, avatar) => {
-    postSignup({email, password, name, avatar}).then((res) => {
-      console.log(res)
-      //need the response to be the new user info - then can set
-      //that as setCurrentUser?
-     handleCloseModal();
-    }).then(() => {
-      setLoggedIn(true)
-      setCurrentUser({email, password, name, avatar})
-      console.log(currentUser)
+    postSignup({email, password, name, avatar})
+    .then((res) => {
+     handleCloseModal()
+     postSignIn({email, password})
+     .then((res) => {
+      return getUserInfo(res.token)
+      .then((userData) => {
+        setCurrentUser(userData)
+        setLoggedIn(true)
+      })
     })
     .catch(console.error)
-  }
-
+  })
+}
   // ----------------USE EFFECT ---------------------------
 
   useEffect(() => {
@@ -157,9 +157,19 @@ function App() {
     };
   }, [activeModal]); // watch activeModal here
 
-  //useEffect(() => {
-  //  const jwt = localStorage.getItem()
-  //})
+ useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+        getUserInfo(jwt)
+        .then((res) => {
+          if (res) {
+            setCurrentUser(res);
+            setLoggedIn(true);
+          }
+        })
+        .catch(console.error);
+    }
+  }, []);
 
   return (
     <div>
@@ -213,7 +223,7 @@ function App() {
             handleCloseModal={handleCloseModal}
             onClose={handleCloseModal}
             onOpen={activeModal === "login"}
-            onLogin={handleLoginSubmit}
+            onLogin={handleLogin}
             //onRegister={handleRegister} //show them Register Modal
           />
         )}

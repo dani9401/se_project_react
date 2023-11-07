@@ -2,7 +2,6 @@ import { baseUrl } from "./constants";
 import { checkResponse } from "./utils";
 
 //sign up
-
 export const postSignup = ({ email, password, name, avatar }) => {
     return fetch(`${baseUrl}/signup`, {
       method: "POST",
@@ -25,3 +24,15 @@ export const postSignup = ({ email, password, name, avatar }) => {
       body: JSON.stringify({ email, password }),
     }).then(checkResponse);
   };
+
+  //get user info
+ export const getUserInfo = (token) => {
+    return fetch(`${baseUrl}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    }).then(checkResponse);
+  };
+
