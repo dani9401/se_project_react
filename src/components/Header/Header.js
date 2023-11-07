@@ -8,7 +8,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const Header = ({ onCreateModal, weatherLocation, onLoginModal, onRegisterModal, loggedIn }) => {
 
 const currentUser = useContext(CurrentUserContext)
-console.log(currentUser)
 const avatarImage = currentUser.avatar;
 
   return (
