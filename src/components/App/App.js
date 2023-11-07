@@ -72,6 +72,7 @@ function App() {
       name: values.name,
       imageUrl: values.imageUrl,
       weather: values.weatherType,
+      token: values.token,
     };
     postNewClothingItem(newItem)
       .then((newItem) => {

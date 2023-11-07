@@ -15,7 +15,7 @@ export const postNewClothingItem = (newItem) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem('token')}`
+      authorization: `Bearer ${newItem.token}`
     },
     body: JSON.stringify({
       name: newItem.name,
