@@ -95,8 +95,11 @@ function App() {
 
   const handleLogin = (email, password) => {
     postSignIn({email, password}).then((res) => {
-      if (res.jwt) {
-        localStorage.setItem("jwt", res.jwt);
+      if (res.token) {
+        localStorage.setItem("jwt", res.token);
+        getUserInfo(res.token).then((userData) => {
+          console.log(userData)
+        }).catch(console.error);
         setLoggedIn(true);
         handleCloseModal();
         return res;
