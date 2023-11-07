@@ -1,66 +1,64 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm"
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
-    //think about what props I need for this to function
+const RegisterModal = ({ handleCloseModal, isOpen, onRegister }) => {
+  //think about what props I need for this to function
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [avatar, setAvatar] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
 
-    useEffect(() => {
-        if (!isOpen) {
-          setEmail("");
-          setPassword("");
-          setName("");
-          setAvatar("");
-        }
-      }, [isOpen]);
-
-      //handlers go here
-
-      const handleRegisterSubmit = (e) => {
-        e.preventDefault();
-        setEmail(email);
-        setPassword(password);
-        setName(name);
-        setAvatar(avatar)
-        onRegister(email, password, name, avatar);
-      }
-    
-
-    const handleLoginClick = () => {
-      //close register modal
-      //open login modal
+  useEffect(() => {
+    if (!isOpen) {
+      setEmail("");
+      setPassword("");
+      setName("");
+      setAvatar("");
     }
-    
+  }, [isOpen]);
 
-      const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-      };
+  //handlers go here
 
-      const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-      };
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    setEmail(email);
+    setPassword(password);
+    setName(name);
+    setAvatar(avatar);
+    onRegister(email, password, name, avatar);
+  };
 
-      const handleNameChange = (e) => {
-        setName(e.target.value);
-      };
+  const handleLoginClick = () => {
+    //close register modal
+    //open login modal
+  };
 
-      const handleAvatarChange = (e) => {
-        setAvatar(e.target.value);
-      };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-    return (
-        <ModalWithForm 
-        title="Sign Up" 
-        onClose={handleCloseModal} 
-        isOpen={isOpen} 
-        modalName={"register"}>
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-        <div className="modal__text-inputs">
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleAvatarChange = (e) => {
+    setAvatar(e.target.value);
+  };
+
+  return (
+    <ModalWithForm
+      title="Sign Up"
+      onClose={handleCloseModal}
+      isOpen={isOpen}
+      modalName={"register"}
+    >
+      <div className="modal__text-inputs">
         <label className="modal__label">
           Email*
           <input
@@ -114,17 +112,24 @@ const RegisterModal = ({handleCloseModal, isOpen, onRegister}) => {
           ></input>
         </label>
       </div>
-      <div> 
-        <button type="submit" className="modal__submit-button modal__submit-button1" onClick={handleRegisterSubmit}>
-            Next
-          </button>
-          <button type="submit" className="modal__submit-button modal__submit-button2" onClick={handleLoginClick}>
-            or Log In
-          </button>
-        </div> 
-        </ModalWithForm>
-        
-    )
-}
+      <div>
+        <button
+          type="submit"
+          className="modal__submit-button modal__submit-button1"
+          onClick={handleRegisterSubmit}
+        >
+          Next
+        </button>
+        <button
+          type="submit"
+          className="modal__submit-button modal__submit-button2"
+          onClick={handleLoginClick}
+        >
+          or Log In
+        </button>
+      </div>
+    </ModalWithForm>
+  );
+};
 
 export default RegisterModal;
