@@ -4,7 +4,7 @@
   padding: 0px 40px 0px 40px;
 }
 
-.profile__sidebar {
+.profile__sidebar-avatar-name {
   max-height: 56px;
   display: flex;
   gap: 16px;
@@ -25,6 +25,31 @@
   line-height: 1.2;
   text-align: center;
   text-wrap: nowrap;
+}
+
+.profile__sidebar-button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  gap: 8px;
+}
+
+.profile__sidebar-button {
+  color: #000;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profile__sidebar-button:hover {
+  opacity: 0.4;
 }
 
 .profile__clothes-section {
