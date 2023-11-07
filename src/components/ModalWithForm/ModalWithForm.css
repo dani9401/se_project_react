@@ -25,6 +25,10 @@
   max-height: 304px;
 }
 
+.modal-container-editProfile {
+  max-height: 304px;
+}
+
 .modal__close-button {
   position: absolute;
   top: 20px;
@@ -136,14 +140,14 @@
 .modal__submit-button1 {
   padding: 8px 16px;
   width: 75px;
-  background: rgba(0, 0, 0, 0.30);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .modal__submit-button2 {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.50);
+  color: rgba(0, 0, 0, 0.5);
   width: 80px;
-  margin-left: 8px
+  margin-left: 8px;
 }
 
 .modal__submit-button:hover {
