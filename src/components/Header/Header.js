@@ -1,11 +1,16 @@
 import "./Header.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Logo from "../../images/Logo_wtwr.svg";
-import Avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Header = ({ onCreateModal, weatherLocation, onLoginModal, onRegisterModal, loggedIn }) => {
+
+const currentUser = useContext(CurrentUserContext)
+console.log(currentUser)
+const avatarImage = currentUser.avatar;
+
   return (
     <header className="header">
       <div className="header__menu-left">
@@ -33,10 +38,10 @@ const Header = ({ onCreateModal, weatherLocation, onLoginModal, onRegisterModal,
           </button>
         </div>
         <Link className="header__name" to="/profile">
-          Danielle Foss
+          {currentUser.name}
         </Link>
         <div>
-          <img src={Avatar} alt="avatar" className="header__avatar"></img>
+          <img src={avatarImage} alt="avatar" className="header__avatar"></img>
         </div>
       </div>
       ) : (
