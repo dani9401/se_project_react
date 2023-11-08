@@ -17,14 +17,24 @@ import {
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import { Switch, Route, Link } from "react-router-dom/cjs/react-router-dom.js";
+import {
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom/cjs/react-router-dom.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
 import {
   deleteClothingItems,
   getClothingItems,
   postNewClothingItem,
 } from "../../utils/api.js";
-import { postSignIn, postSignup, getUserInfo } from "../../utils/auth.js";
+import {
+  postSignIn,
+  postSignup,
+  getUserInfo,
+  editProfile,
+} from "../../utils/auth.js";
 
 function App() {
   // ----------------USE STATE ---------------------------
@@ -105,7 +115,7 @@ function App() {
           localStorage.setItem("jwt", res.token);
           getUserInfo(res.token)
             .then((userData) => {
-              console.log(userData);
+              setCurrentUser(userData);
             })
             .catch(console.error);
           setLoggedIn(true);
@@ -132,7 +142,24 @@ function App() {
     });
   };
 
-  const handleEditProfileSubmit = () => {};
+  const handleEditProfileSubmit = (name, avatar, token) => {
+    editProfile(name, avatar, token)
+      .then((res) => {
+        console.log(res);
+        getUserInfo(token).then((userData) => {
+          setCurrentUser(userData);
+          handleCloseModal();
+        });
+      })
+      .catch(console.error);
+  };
+
+  const handleLogout = () => {
+    //remove token from local storage
+    localStorage.removeItem("jwt");
+    //update setLogin to false
+    setLoggedIn(false);
+  };
 
   // ----------------USE EFFECT ---------------------------
 
@@ -211,8 +238,12 @@ function App() {
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}
                 onEditProfileModal={handleEditProfileModal}
+                onLogout={handleLogout}
               />
             </ProtectedRoute>
+            <Route exact path="">
+              {loggedIn ? <Redirect to="/profile" /> : <Redirect to="/" />}
+            </Route>
           </Switch>
           <Footer />
           {activeModal === "create" && (
