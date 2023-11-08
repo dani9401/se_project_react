@@ -34,6 +34,8 @@ import {
   postSignup,
   getUserInfo,
   editProfile,
+  addCardLike,
+  removeCardLike,
 } from "../../utils/auth.js";
 
 function App() {
@@ -159,6 +161,30 @@ function App() {
     localStorage.removeItem("jwt");
     //update setLogin to false
     setLoggedIn(false);
+  };
+
+  const handleLikeClick = ({ id, isLiked, user }) => {
+    const token = localStorage.getItem("jwt");
+    // Check if this card is now liked
+    isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+        // the first argument is the card's id
+        addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+        // the first argument is the card's id
+        removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err));
   };
 
   // ----------------USE EFFECT ---------------------------

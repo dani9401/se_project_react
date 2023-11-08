@@ -9,8 +9,10 @@ const ItemCard = ({ item, onSelectCard }) => {
         onClick={() => onSelectCard(item)}
         alt="card-image"
       />
-
-      <h2 className="card__name">{item.name}</h2>
+      <div className="card__title">
+        <h2 className="card__name">{item.name}</h2>
+        <button className="card__likeButton">Heart</button>
+      </div>
     </div>
   );
 };
