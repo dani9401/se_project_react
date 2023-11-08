@@ -163,7 +163,7 @@ function App() {
     setLoggedIn(false);
   };
 
-  const handleLikeClick = ({ id, isLiked, user }) => {
+  const handleCardLike = ({ id, isLiked, currentUser }) => {
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
     isLiked
@@ -256,6 +256,7 @@ function App() {
                 weatherTemp={weatherTemp}
                 onSelectCard={handleSelectedCard}
                 clothingItems={clothingItems}
+                onCardLike={handleCardLike}
               />
             </Route>
             <ProtectedRoute path="/profile" loggedIn={loggedIn}>
