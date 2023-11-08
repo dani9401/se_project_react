@@ -45,6 +45,11 @@
 }
 
 .card__likeButton {
+  width: 21px;
+  height: 18px;
+  background-color: #fff;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .card__items {
