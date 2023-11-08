@@ -8,11 +8,12 @@ const Profile = ({
   clothingItems,
   onSelectCard,
   onEditProfileModal,
+  onLogout,
 }) => {
   return (
     <section className="profile">
       <div className="profile__sidebar">
-        <SideBar onEditProfileModal={onEditProfileModal} />
+        <SideBar onEditProfileModal={onEditProfileModal} onLogout={onLogout} />
       </div>
       <ClothesSection
         onCreateModal={onCreateModal}
