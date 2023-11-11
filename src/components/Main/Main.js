@@ -22,7 +22,9 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
   const weatherType = getWeatherType(temp);
 
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType; //toLowerCase removes possibility that card might have weather style in non-identical string, ie; Hot vs hot
+    return item.weather.toLowerCase() === weatherType;
+    //toLowerCase removes possibility that card might have weather
+    //style in non-identical string, ie; Hot vs hot
   });
 
   return (
@@ -44,7 +46,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
               key={item.id || item._id}
               item={item}
               onSelectCard={onSelectCard}
-              onCardLike={onCardLike}
+              onCardLikey={onCardLike}
             />
           ))}
         </div>

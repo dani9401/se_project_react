@@ -45,11 +45,18 @@
 }
 
 .card__likeButton {
-  width: 21px;
-  height: 18px;
-  background-color: #fff;
+  width: 18px;
+  height: 15px;
   transition: opacity 0.5s ease-in-out;
   cursor: pointer;
+}
+
+.card__likeButton-active {
+  background-image: url(../../../images/heart_button_active.svg);
+}
+
+.card__likeButton-inactive {
+  background-image: url(../../../images/heart_button_inactive.svg);
 }
 
 .card__items {

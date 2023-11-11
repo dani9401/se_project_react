@@ -15,7 +15,7 @@ export const postNewClothingItem = (newItem) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${newItem.token}`
+      authorization: `Bearer ${newItem.token}`,
     },
     body: JSON.stringify({
       name: newItem.name,
@@ -30,9 +30,7 @@ export const deleteClothingItems = (id) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem('token')}`
+      authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   }).then(checkResponse);
 };
-
-
