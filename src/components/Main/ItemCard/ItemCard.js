@@ -4,7 +4,7 @@ import "./ItemCard.css";
 import heart_button_inactive from "../../../images/heart_button_inactive.svg";
 //import heart_button_active from "../../images/heart_button_active.svg";"
 
-const ItemCard = ({ item, onSelectCard, onCardLikey }) => {
+const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   const currentUser = useContext(CurrentUserContext);
 
   // Check if the item was liked by the current user
@@ -18,7 +18,7 @@ const ItemCard = ({ item, onSelectCard, onCardLikey }) => {
 
   //handle like button click here
   const handleCardLikeClick = (item) => {
-    onCardLikey({ item, isLiked, currentUser });
+    onCardLike(item, isLiked, currentUser);
   };
 
   return (

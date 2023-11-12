@@ -46,7 +46,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
               key={item.id || item._id}
               item={item}
               onSelectCard={onSelectCard}
-              onCardLikey={onCardLike}
+              onCardLike={onCardLike}
             />
           ))}
         </div>
