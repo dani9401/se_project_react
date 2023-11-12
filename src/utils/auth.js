@@ -50,7 +50,7 @@ export const editProfile = (name, avatar, token) => {
 
 //add card like
 export const addCardLike = (itemId, token) => {
-  return fetch(`${baseUrl}/${itemId}/likes`, {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export const addCardLike = (itemId, token) => {
 
 //remove card like
 export const removeCardLike = (itemId, token) => {
-  return fetch(`${baseUrl}/${itemId}/likes`, {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
