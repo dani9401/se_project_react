@@ -9,6 +9,7 @@ const Profile = ({
   onSelectCard,
   onEditProfileModal,
   onLogout,
+  onCardLike,
 }) => {
   return (
     <section className="profile">
@@ -19,6 +20,7 @@ const Profile = ({
         onCreateModal={onCreateModal}
         clothingItems={clothingItems}
         onSelectCard={onSelectCard}
+        onCardLike={onCardLike}
       />
     </section>
   );
