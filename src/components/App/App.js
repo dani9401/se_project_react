@@ -271,6 +271,7 @@ function App() {
                 onSelectCard={handleSelectedCard}
                 onEditProfileModal={handleEditProfileModal}
                 onLogout={handleLogout}
+                onCardLike={handleCardLike}
               />
             </ProtectedRoute>
             <Route exact path="">
