@@ -49,25 +49,25 @@ export const editProfile = (name, avatar, token) => {
 };
 
 //add card like
-export const addCardLike = (itemId, token) => {
+export const addCardLike = (itemId, userId, token) => {
   return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ itemId }),
+    body: JSON.stringify({ itemId, userId }),
   }).then(checkResponse);
 };
 
 //remove card like
-export const removeCardLike = (itemId, token) => {
+export const removeCardLike = (itemId, userId, token) => {
   return fetch(`${baseUrl}/items/${itemId}/likes`, {
-    method: "PUT",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ itemId }),
+    body: JSON.stringify({ itemId, userId }),
   }).then(checkResponse);
 };
