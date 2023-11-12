@@ -13,7 +13,7 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
 
   // Create a variable which you then set in `className` for the like button
   const itemLikeButtonClassName = `card__likeButton ${
-    isLiked ? "card__likeButton_active" : "card__likeButton_inactive"
+    isLiked ? "card__likeButton-active" : "card__likeButton-inactive"
   }`;
 
   //handle like button click here
@@ -31,11 +31,11 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
       />
       <div className="card__title">
         <h2 className="card__name">{item.name}</h2>
-        <img
+        <button
           className={itemLikeButtonClassName}
-          src={heart_button_inactive}
+          type="button"
           onClick={() => handleCardLikeClick(item)}
-        ></img>
+        ></button>
       </div>
     </div>
   );
