@@ -170,12 +170,9 @@ function App() {
       ? // if so, send a request to add the user's id to the card's likes array
         // the first argument is the card's id
         addCardLike(item._id, currentUser._id, token)
-          .then((updatedCard) => {
-            console.log(updatedCard);
+          .then((res) => {
             setClothingItems((clothingItems) =>
-              clothingItems.map((card) =>
-                card._id === item._id ? updatedCard : card
-              )
+              clothingItems.map((card) => (card._id === item._id ? res : card))
             );
           })
           .catch((err) => console.log(err))
