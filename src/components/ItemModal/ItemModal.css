@@ -65,6 +65,38 @@
   cursor: pointer;
 }
 
+.modal__delete-button_visible {
+  visibility: visible;
+  position: absolute;
+  bottom: 68px;
+  right: 32px;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ff4d00;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal__delete-button_hidden {
+  visibility: hidden;
+  position: absolute;
+  bottom: 68px;
+  right: 32px;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ff4d00;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 555px) {
   .modal__container-image {
     max-width: 90vw;
