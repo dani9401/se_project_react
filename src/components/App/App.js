@@ -92,6 +92,7 @@ function App() {
     };
     postNewClothingItem(newItem)
       .then((newItem) => {
+        console.log(newItem);
         setClothingItems([newItem, ...clothingItems]);
         getClothingItems()
           .then((data) => {
@@ -103,18 +104,21 @@ function App() {
       .catch(console.error);
   };
 
-  const handleDeleteItemSubmit = (cardID) => {
-    deleteClothingItems(cardID)
+  const handleDeleteItemSubmit = (cardID, token) => {
+    deleteClothingItems(cardID, token)
       .then((res) => {
         const newClothingItems = clothingItems.filter((card) => {
           return card.id !== cardID;
         });
-        setClothingItems(newClothingItems);
+        getClothingItems()
+          .then((data) => {
+            setClothingItems(data.items);
+          })
+          .catch(console.error);
         handleCloseModal();
       })
       .catch(console.error);
   };
-
   const handleLogin = (email, password) => {
     postSignIn({ email, password })
       .then((res) => {

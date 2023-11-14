@@ -25,12 +25,12 @@ export const postNewClothingItem = (newItem) => {
   }).then(checkResponse);
 };
 
-export const deleteClothingItems = (id) => {
+export const deleteClothingItems = (id, token) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
+      authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
 };

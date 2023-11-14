@@ -4,6 +4,7 @@ import { useContext } from "react";
 
 const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
   const currentUser = useContext(CurrentUserContext);
+  const token = localStorage.getItem("jwt");
 
   // Checking if the current user is the owner of the current clothing item
   const isOwner = selectedCard.owner === currentUser._id;
@@ -13,7 +14,7 @@ const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
   }`;
 
   const handleDeleteItemSubmit = () => {
-    onDeleteItem(selectedCard.id);
+    onDeleteItem(selectedCard._id, token);
   };
 
   return (
