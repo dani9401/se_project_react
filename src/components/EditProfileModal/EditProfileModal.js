@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({ handleCloseModal, isOpen, onSubmit }) => {
   const token = localStorage.getItem("jwt");
 
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  const currentUser = useContext(CurrentUserContext);
+  console.log(currentUser);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -23,8 +27,8 @@ const EditProfileModal = ({ handleCloseModal, isOpen, onSubmit }) => {
 
   useEffect(() => {
     if (!isOpen) {
-      setName("");
-      setAvatar("");
+      setName(currentUser.name);
+      setAvatar(currentUser.avatar);
     }
   }, [isOpen]);
 
