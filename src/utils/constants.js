@@ -4,6 +4,21 @@ export const latitude = 39.73;
 export const longitude = -104.99;
 export const apiKey = "68247c01732e1119e845b344423d9160";
 
+export const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export const weatherOptions = [
   {
     url: require("../images/Day/Day - Sunny.svg").default,
@@ -75,5 +90,4 @@ export const headers = {
   "Content-Type": "application/json",
 };
 
-
-  //"https://my-json-server.typicode.com/dani9401/se_project_react";
+//"https://my-json-server.typicode.com/dani9401/se_project_react";

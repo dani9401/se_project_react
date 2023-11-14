@@ -1,6 +1,7 @@
 import "./Header.css";
 import { useContext, useState } from "react";
 import Logo from "../../images/Logo_wtwr.svg";
+import { months } from "../../utils/constants";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -17,6 +18,10 @@ const Header = ({
   const showAvatar = avatar !== "" ? true : false;
   const name = currentUser.name;
 
+  const d = new Date();
+  const currentMonth = months[d.getMonth()];
+  const currentDay = d.getDate();
+
   return (
     <header className="header">
       <div className="header__menu-left">
@@ -29,7 +34,9 @@ const Header = ({
             ></img>
           </Link>
         </div>
-        <h3 className="header__date-location">August 23, {weatherLocation}</h3>
+        <h3 className="header__date-location">
+          {currentMonth} {currentDay}, {weatherLocation}
+        </h3>
       </div>
       {loggedIn ? (
         <div className="header__menu-right">
