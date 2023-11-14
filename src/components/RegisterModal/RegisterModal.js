@@ -2,7 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ handleCloseModal, isOpen, onRegister }) => {
+const RegisterModal = ({
+  handleCloseModal,
+  isOpen,
+  onRegister,
+  setActiveModal,
+}) => {
   //think about what props I need for this to function
 
   const [email, setEmail] = useState("");
@@ -31,8 +36,7 @@ const RegisterModal = ({ handleCloseModal, isOpen, onRegister }) => {
   };
 
   const handleLoginClick = () => {
-    //close register modal
-    //open login modal
+    setActiveModal("login");
   };
 
   const handleEmailChange = (e) => {
