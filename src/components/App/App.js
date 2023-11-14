@@ -93,6 +93,11 @@ function App() {
     postNewClothingItem(newItem)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
+        getClothingItems()
+          .then((data) => {
+            setClothingItems(data.items);
+          })
+          .catch(console.error);
         handleCloseModal();
       })
       .catch(console.error);
@@ -161,6 +166,7 @@ function App() {
     localStorage.removeItem("jwt");
     //update setLogin to false
     setLoggedIn(false);
+    setClothingItems(clothingItems);
   };
 
   const handleCardLike = (item, isLiked, currentUser) => {
@@ -300,6 +306,7 @@ function App() {
               onClose={handleCloseModal}
               onOpen={activeModal === "login"}
               onLogin={handleLogin}
+              setActiveModal={setActiveModal}
               //onRegister={handleRegister} //show them Register Modal
             />
           )}
@@ -308,8 +315,8 @@ function App() {
               handleCloseModal={handleCloseModal}
               onClose={handleCloseModal}
               onOpen={activeModal === "register"}
-              //onLogin={handleLogin} //show them Login modal
-              onRegister={handleRegisterSubmit} //"Next" button
+              onRegister={handleRegisterSubmit}
+              setActiveModal={setActiveModal}
             />
           )}
           {activeModal === "editProfile" && (
