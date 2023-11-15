@@ -61,6 +61,8 @@ const RegisterModal = ({
       onClose={handleCloseModal}
       isOpen={isOpen}
       modalName={"register"}
+      onsubmit={handleRegisterSubmit}
+      buttonText="Next"
     >
       <div className="modal__text-inputs">
         <label className="modal__label">
@@ -117,13 +119,6 @@ const RegisterModal = ({
         </label>
       </div>
       <div>
-        <button
-          type="submit"
-          className="modal__submit-button modal__submit-button1"
-          onClick={handleRegisterSubmit}
-        >
-          Next
-        </button>
         <button
           type="submit"
           className="modal__submit-button modal__submit-button2"

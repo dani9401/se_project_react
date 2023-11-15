@@ -37,6 +37,8 @@ const EditProfileModal = ({ handleCloseModal, isOpen, onSubmit }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       modalName={"editProfile"}
+      onsubmit={handleSubmit}
+      buttonText="Save Changes"
     >
       <div className="modal__text-inputs">
         <label className="modal__label">
@@ -65,15 +67,6 @@ const EditProfileModal = ({ handleCloseModal, isOpen, onSubmit }) => {
             onChange={handleAvatarChange}
           ></input>
         </label>
-      </div>
-      <div>
-        <button
-          type="submit"
-          className="modal__submit-button"
-          onClick={handleSubmit}
-        >
-          Save Changes
-        </button>
       </div>
     </ModalWithForm>
   );

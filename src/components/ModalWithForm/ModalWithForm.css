@@ -120,7 +120,7 @@
 }
 
 .modal__submit-button {
-  margin-top: 34px;
+  margin-top: 32px;
   width: 124px;
   height: 36px;
   color: #fff;
@@ -137,13 +137,9 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.modal__submit-button1 {
-  padding: 8px 16px;
-  width: 75px;
-  background: rgba(0, 0, 0, 0.3);
-}
-
 .modal__submit-button2 {
+  position: absolute;
+  right: 260px;
   background-color: transparent;
   color: rgba(0, 0, 0, 0.5);
   width: 80px;
