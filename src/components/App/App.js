@@ -42,12 +42,9 @@ function App() {
   // ----------------USE STATE ---------------------------
   const [activeModal, setActiveModal] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
-  //const [newClothingItem, setNewClothingItem] = useState({});
-  const [selectedCard, setSelectedCard] = useState({}); //we chose and empty object on this one because
-  // the defaultClothingItems (ie: the card) is also an object.
+  const [selectedCard, setSelectedCard] = useState({});
   const [weatherTemp, setWeatherTemp] = useState(0);
   const [weatherLocation, setWeatherLocation] = useState("");
-  //const [weatherCondition, setWeatherCondition] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});

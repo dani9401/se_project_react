@@ -14,6 +14,8 @@ const ClothesSection = ({
     return item.owner === currentUser._id;
   });
 
+  console.log(ownedItems);
+
   return (
     <div className="profile__clothes-section">
       <div className="profile__menu-top">
