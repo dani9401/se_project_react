@@ -79,7 +79,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="radio-button-weather"
             onChange={handleWeatherTypeChange}
           ></input>
-          <label className="modal__radio-button-label" for="hot">
+          <label className="modal__radio-button-label" htmlFor="hot">
             Hot
           </label>
         </div>
@@ -92,7 +92,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="radio-button-weather"
             onChange={handleWeatherTypeChange}
           ></input>
-          <label className="modal__radio-button-label" for="warm">
+          <label className="modal__radio-button-label" htmlFor="warm">
             Warm
           </label>
         </div>
@@ -105,7 +105,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="radio-button-weather"
             onChange={handleWeatherTypeChange}
           ></input>
-          <label className="modal__radio-button-label" for="cold">
+          <label className="modal__radio-button-label" htmlFor="cold">
             Cold
           </label>
         </div>
@@ -113,7 +113,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       <button
         type="submit"
         className="modal__submit-button"
-        onClick={handleSubmit}
+        onSubmit={handleSubmit}
       >
         Add Garment
       </button>
