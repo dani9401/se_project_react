@@ -127,29 +127,31 @@ function App() {
   };
 
   const handleRegisterSubmit = (email, password, name, avatar) => {
-    postSignup({ email, password, name, avatar }).then((res) => {
-      handleCloseModal();
-      postSignIn({ email, password })
-        .then((res) => {
-          return getUserInfo(res.token).then((userData) => {
-            setCurrentUser(userData);
-            setLoggedIn(true);
-          });
-        })
-        .catch(console.error);
-    });
+    postSignup({ email, password, name, avatar })
+      .then((res) => {
+        console.log(res);
+        handleCloseModal();
+        postSignIn({ email, password })
+          .then((res) => {
+            return getUserInfo(res.token).then((userData) => {
+              setCurrentUser(userData);
+              setLoggedIn(true);
+            });
+          })
+          .catch(console.error);
+      })
+      .catch(console.error);
   };
 
   const handleEditProfileSubmit = (name, avatar, token) => {
+    //set isLoading feature later on
     editProfile(name, avatar, token)
       .then((res) => {
-        console.log(res);
-        getUserInfo(token).then((userData) => {
-          setCurrentUser(userData);
-          handleCloseModal();
-        });
+        setCurrentUser(res.data);
+        handleCloseModal();
       })
       .catch(console.error);
+    //.finally remove isLoading
   };
 
   const handleLogout = () => {
