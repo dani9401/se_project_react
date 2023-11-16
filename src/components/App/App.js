@@ -112,11 +112,6 @@ function App() {
       .then((res) => {
         if (res.token) {
           localStorage.setItem("jwt", res.token);
-          getUserInfo(res.token)
-            .then((userData) => {
-              setCurrentUser(userData);
-            })
-            .catch(console.error);
           setLoggedIn(true);
           handleCloseModal();
           return res;
@@ -130,16 +125,8 @@ function App() {
   const handleRegisterSubmit = (email, password, name, avatar) => {
     postSignup({ email, password, name, avatar })
       .then((res) => {
-        console.log(res);
         handleCloseModal();
-        postSignIn({ email, password })
-          .then((res) => {
-            return getUserInfo(res.token).then((userData) => {
-              setCurrentUser(userData);
-              setLoggedIn(true);
-            });
-          })
-          .catch(console.error);
+        handleLogin(email, password);
       })
       .catch(console.error);
   };
@@ -238,7 +225,7 @@ function App() {
         })
         .catch(console.error);
     }
-  }, []);
+  }, [loggedIn]);
 
   return (
     <CurrentTemperatureUnitContext.Provider
