@@ -167,7 +167,6 @@ function App() {
         // the first argument is the card's id
         removeCardLike(item._id, currentUser._id, token)
           .then((updatedCard) => {
-            console.log(updatedCard);
             setClothingItems((clothingItems) =>
               clothingItems.map((card) =>
                 card._id === item._id ? updatedCard : card
