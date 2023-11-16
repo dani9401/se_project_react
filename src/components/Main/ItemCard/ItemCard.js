@@ -27,7 +27,7 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
         src={item.imageUrl}
         className="card__image"
         onClick={() => onSelectCard(item)}
-        alt="card-image"
+        alt={item.name}
       />
       <div className="card__title">
         <h2 className="card__name">{item.name}</h2>
