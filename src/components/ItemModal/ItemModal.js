@@ -28,7 +28,7 @@ const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
         <img
           src={selectedCard.imageUrl}
           className="modal__image-preview"
-          alt="image-preview"
+          alt={selectedCard.name}
         ></img>
         <div className="modal__item-name">{selectedCard.name}</div>
         <div className="modal__weather-type">

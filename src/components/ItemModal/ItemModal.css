@@ -26,7 +26,8 @@
 .modal__image-preview {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  max-width: 498px;
+  width: 498px;
+  height: 498px;
 }
 
 .modal__item-name {
