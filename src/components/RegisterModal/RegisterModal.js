@@ -28,10 +28,6 @@ const RegisterModal = ({
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    setEmail(email);
-    setPassword(password);
-    setName(name);
-    setAvatar(avatar);
     onRegister(email, password, name, avatar);
   };
 
