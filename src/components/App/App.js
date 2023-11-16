@@ -99,14 +99,10 @@ function App() {
     deleteClothingItems(cardID, token)
       .then((res) => {
         const newClothingItems = clothingItems.filter((card) => {
-          return card.id !== cardID;
+          return card._id !== cardID;
         });
-        getClothingItems()
-          .then((data) => {
-            setClothingItems(data.items);
-          })
-          .catch(console.error);
         handleCloseModal();
+        setClothingItems(newClothingItems);
       })
       .catch(console.error);
   };
