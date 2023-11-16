@@ -40,7 +40,7 @@ const LoginModal = ({ handleCloseModal, isOpen, onLogin, setActiveModal }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       modalName={"login"}
-      onsubmit={handleLoginSubmit}
+      onSubmit={handleLoginSubmit}
       buttonText="Log In"
     >
       <div className="modal__text-inputs">
