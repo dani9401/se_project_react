@@ -37,7 +37,7 @@ const EditProfileModal = ({ handleCloseModal, isOpen, onSubmit }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       modalName={"editProfile"}
-      onsubmit={handleSubmit}
+      onSubmit={handleSubmit}
       buttonText="Save Changes"
     >
       <div className="modal__text-inputs">

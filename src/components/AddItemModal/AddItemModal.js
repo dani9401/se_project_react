@@ -39,7 +39,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       title="New Garment"
       onClose={handleCloseModal}
       isOpen={isOpen}
-      onsubmit={handleSubmit}
+      onSubmit={handleSubmit}
       buttonText="Add Garment"
     >
       <div className="modal__text-inputs">
