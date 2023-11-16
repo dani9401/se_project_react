@@ -19,11 +19,7 @@ const WeatherCard = ({
       <h2 className="weather__info">
         {weatherTemp}°{currentTemperatureUnit}
       </h2>
-      <img
-        className="weather__image"
-        src={weatherOptionUrl}
-        alt="weather image"
-      ></img>
+      <img className="weather__image" src={weatherOptionUrl} alt={type}></img>
     </section>
   );
 };
