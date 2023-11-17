@@ -116,7 +116,7 @@ const RegisterModal = ({
       </div>
       <div>
         <button
-          type="submit"
+          type="button"
           className="modal__submit-button modal__submit-button2"
           onClick={handleLoginClick}
         >
