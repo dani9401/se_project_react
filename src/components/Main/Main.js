@@ -11,24 +11,23 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
 
   const getWeatherType = () => {
     const tempF = weatherTemp?.temperature?.F; // only F
+    const tempC = weatherTemp?.temperature?.C; // only C
     if (tempF >= 86) {
       return "hot";
     } else if (tempF >= 66 && tempF <= 85) {
       return "warm";
     } else if (tempF <= 65) {
       return "cold";
-    }
-    const tempC = weatherTemp?.temperature?.C; // only C
-    if (tempC >= 30) {
+    } else if (tempC <= 30) {
       return "hot";
-    } else if (tempC >= 19 && tempF <= 29) {
+    } else if (tempC >= 19 && tempC <= 29) {
       return "warm";
     } else if (tempC <= 18) {
       return "cold";
     }
   };
 
-  const weatherType = getWeatherType(temp);
+  const weatherType = getWeatherType(temp); //hot, cold, warm
 
   const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
