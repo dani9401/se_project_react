@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && scp -r ./build/* danifoss2011@wtwrdanielle.rainbowcup.com:/home/danifoss2011/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +40,7 @@
   },
   "description": "The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.",
   "main": "index.js",
+  "homepage": "www.wtwrdanielle.rainbowcup.com",
   "keywords": [],
   "author": "",
   "license": "ISC",
