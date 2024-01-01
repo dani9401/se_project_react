@@ -85,7 +85,7 @@ export const weatherOptions = [
 // - - - CLOTHING API - - - //
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "api.wtwrdanielle.rainbowcup.com"
+    ? "https://api.wtwrdanielle.rainbowcup.com"
     : "http://localhost:3001";
 
 export const headers = {
